@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+ .navbar{
+   background-color: #defcff;
+ }
+ .navbar-brand{
+   font-weight: 500;
+   font-size: 1.75em
+ }
+.navbar-light .navbar-nav .nav-link{
+   color: rgba(0,0,0,0.8)
+}
