@@ -14,10 +14,14 @@
     </div>
     </div>
 
-    <div class="navbar-nav"> 
-        <a class="nav-item nav-link" href="#">Resources</a>
+    <div class="navbar-nav">
+        <%#= link_to "Listings", %> 
         <a class="nav-item nav-link" href="#">Listings</a>
-        <a class="nav-item nav-link" href="#">Contact</a>
+        <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link" %>
+        <%# <a class="nav-item nav-link" href="#">Organisations</a> %>
+        <%# <a class="nav-item nav-link" href="#">Resources</a> %>
+        <%#= link_to "Resources", /, class:"nav-item nav-link" %>
+        <%# <a class="nav-item nav-link" href="#">Contact</a> %>
     </div>
     <div class="navbar-nav">
         <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-success">Donate</button></a>
