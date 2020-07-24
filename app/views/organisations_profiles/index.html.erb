@@ -1,24 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Organisations Profiles</h1>
+<% if current_organisation %>
 <%= link_to 'Add New Organisation', new_organisations_profile_path %>
+<% end %>
 <div class="card-rows">
   <% @organisations_profiles.map do |organisations_profile| %>
     <div class="card" style="width: 18rem;">
-        <p><%= image_tag(exercise_gallery.picture, class:"card-img-top") if exercise_gallery.picture.attached? %></p>
+        <p><%= image_tag(organisations_profile.picture, class:"card-img-top") if organisations_profile.picture.attached? %></p>
       
       <div class="card-body">
-        <h5 class="card-title"><%= exercise_gallery.name %></h5>
+        <h5 class="card-title"><%= organisations_profile.name %></h5>
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Muscle groups: <%= exercise_gallery.muscle_groups%></li>
+        <li class="list-group-item">Muscle groups: <%= organisations_profile.muscle_groups%></li>
       </ul>
 
       <div class="card-body">
-        <%= link_to 'Show', exercise_gallery %>
-        <%= link_to 'Edit', edit_exercise_gallery_path(exercise_gallery) %>
-        <%= link_to 'Destroy', exercise_gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Show', organisations_profile %>
+        <%#= link_to 'Edit', edit_exercise_gallery_path(organisations_profile) %>
+        <%#= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
   <% end %>

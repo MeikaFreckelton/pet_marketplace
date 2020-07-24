@@ -1,3 +1,3 @@
 class OrganisationsProfile < ApplicationRecord
-  belongs_to :organisation, optional: true
+  belongs_to :organisation
 end
