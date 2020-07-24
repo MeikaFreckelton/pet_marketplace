@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Organisations Profiles</h1>
+<%= link_to 'Add New Organisation', new_organisations_profile_path %>
+<div class="card-rows">
+  <% @organisations_profiles.map do |organisations_profile| %>
+    <div class="card" style="width: 18rem;">
+        <p><%= image_tag(exercise_gallery.picture, class:"card-img-top") if exercise_gallery.picture.attached? %></p>
+      
+      <div class="card-body">
+        <h5 class="card-title"><%= exercise_gallery.name %></h5>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Muscle groups: <%= exercise_gallery.muscle_groups%></li>
+      </ul>
+
+      <div class="card-body">
+        <%= link_to 'Show', exercise_gallery %>
+        <%= link_to 'Edit', edit_exercise_gallery_path(exercise_gallery) %>
+        <%= link_to 'Destroy', exercise_gallery, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 
 <table>
   <thead>
@@ -44,4 +67,4 @@
 
 <br>
 
-<%= link_to 'New Organisations Profile', new_organisations_profile_path %>
+

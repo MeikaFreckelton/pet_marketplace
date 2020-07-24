@@ -1,0 +1,30 @@
+
+<%= simple_form_for(@listing) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :breed %>
+    <%= f.input :sex %>
+    <%= f.input :animal_type %>
+    <%= f.input :microchip_number %>
+    <%= f.input :desexed_status %>
+    <%= f.input :expected_size %>
+    <%= f.input :vaccination_status %>
+    <%= f.input :health_status %>
+    <%= f.input :phone_number %>
+    <%= f.input :email %>
+    <%= f.input :description %>
+    <%= f.input :vaccination_details %>
+    <%= f.association :organisations_profile %>
+    <%= f.association :users_profile %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

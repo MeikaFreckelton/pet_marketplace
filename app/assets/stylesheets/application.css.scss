@@ -16,7 +16,7 @@
  @import "bootstrap";
 
  .navbar{
-   background-color: #defcff;
+   background-color: #dbffe6;
  }
  .navbar-brand{
    font-weight: 500;
@@ -24,4 +24,21 @@
  }
 .navbar-light .navbar-nav .nav-link{
    color: rgba(0,0,0,0.8)
+}
+// .btn-primary{
+//    background-color: #8fb8a0;
+//    // color: black;
+//    border: none;
+// }
+.btn-primary{
+   background-color: white;
+   color: #1c1c1c;
+
+   // color: #1c1c1c;
+   border: 1px solid #1c1c1c;
+   &:hover{
+      background-color: #8fb8a0;
+      border: 1px solid #1c1c1c;
+   }
+
 }

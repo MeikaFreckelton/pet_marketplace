@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: MyString
+  location: MyString
+  price: 1.5
+  breed: MyString
+  sex: 1
+  animal_type: MyString
+  microchip_number: 1.5
+  desexed_status: 1
+  expected_size: MyString
+  vaccination_status: 1
+  health_status: MyText
+  phone_number: 1
+  email: MyString
+  description: MyText
+  vaccination_details: MyText
+  organisations_profile: one
+  users_profile: one
+
+two:
+  name: MyString
+  age: MyString
+  location: MyString
+  price: 1.5
+  breed: MyString
+  sex: 1
+  animal_type: MyString
+  microchip_number: 1.5
+  desexed_status: 1
+  expected_size: MyString
+  vaccination_status: 1
+  health_status: MyText
+  phone_number: 1
+  email: MyString
+  description: MyText
+  vaccination_details: MyText
+  organisations_profile: two
+  users_profile: two

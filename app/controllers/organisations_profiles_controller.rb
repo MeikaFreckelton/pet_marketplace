@@ -14,6 +14,7 @@ class OrganisationsProfilesController < ApplicationController
 
   # GET /organisations_profiles/new
   def new
+    # @organisations_id = current_u
     @organisations_profile = OrganisationsProfile.new
   end
 

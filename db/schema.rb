@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_013547) do
+ActiveRecord::Schema.define(version: 2020_07_24_014712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,31 @@ ActiveRecord::Schema.define(version: 2020_07_24_013547) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "location"
+    t.float "price"
+    t.string "breed"
+    t.integer "sex"
+    t.string "animal_type"
+    t.float "microchip_number"
+    t.integer "desexed_status"
+    t.string "expected_size"
+    t.integer "vaccination_status"
+    t.text "health_status"
+    t.integer "phone_number"
+    t.string "email"
+    t.text "description"
+    t.text "vaccination_details"
+    t.bigint "organisations_profile_id", null: false
+    t.bigint "users_profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["organisations_profile_id"], name: "index_listings_on_organisations_profile_id"
+    t.index ["users_profile_id"], name: "index_listings_on_users_profile_id"
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -93,6 +118,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_013547) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "listings", "organisations_profiles"
+  add_foreign_key "listings", "users_profiles"
   add_foreign_key "organisations_profiles", "organisations"
   add_foreign_key "users_profiles", "users"
 end
