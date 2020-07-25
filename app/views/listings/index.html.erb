@@ -1,6 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listings</h1>
+<% if (current_organisation )%>
+  <%= link_to "Create new listing", new_listing_path  %>
+<% end %>
+
+<div class="card-rows">
+  <% @listings.map do |listing| %>
+    <div class="card">
+      <%#= image_tag listing.pictures.find(2) if listing.pictures.attached?%>   
+      
+      <div class="card-body">
+        <h5 class="card-title"><%= listing.name %></h5>
+        <h6 class="card-title"><%= listing.age %></h6>
+        <h4 class="card-title"><%= listing.price %></h4>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <%= listing.breed %></li>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <%= listing.location %></li>
+      </ul>
+
+      <div class="card-body">
+        <%= link_to 'Read More', listing %>
+        <% if current_organisation %>
+        <%= link_to 'Edit', edit_listing_path(listing) %>
+        <% end %>
+        <%#= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
 
 <table>
   <thead>

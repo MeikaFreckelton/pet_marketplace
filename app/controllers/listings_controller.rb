@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action (:authenticate_user! || :authenticate_organisation! || :authenticate_admin!)
   # validates :
 
   # GET /listings
@@ -27,6 +27,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.organisations_profile_id = (OrganisationsProfile.find_by(organisation_id: current_organisation.id)).id 
+    @listing.save
 
     respond_to do |format|
       if @listing.save
@@ -74,3 +76,15 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(:name, :age, :location, :price, :breed, :sex, :animal_type, :microchip_number, :desexed_status, :expected_size, :vaccination_status, :health_status, :phone_number, :email, :description, :vaccination_details, :organisations_profile_id, :users_profile_id)
     end
 end
+
+
+
+
+
+# rails c problem solving notes :
+# listing, listing2
+# org, org2
+# org_profile, profile2
+# group
+# group is trying to find the profile_id, of the profile whose org_id matches org.id(current_org)
+# OrganisationsProfile.find_by(organisation_id: org.id) 
