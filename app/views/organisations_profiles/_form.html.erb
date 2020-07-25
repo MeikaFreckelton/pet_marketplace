@@ -1,4 +1,4 @@
-
+<%# form for new organisation profile %>
 <%= simple_form_for(@organisations_profile) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -13,8 +13,7 @@
     <%= f.input :state %>
     <%= f.input :postcode %>
     <%= f.input :bio %>
-    <%= f.input :rating %>
-    <%= f.association :organisation %>
+    <%= f.file_field :pictures, multiple: true%>
   </div>
 
   <div class="form-actions">

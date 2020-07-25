@@ -1,72 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Organisations Profiles</h1>
-<% if current_organisation %>
-<%= link_to 'Add New Organisation', new_organisations_profile_path %>
+<% if (current_organisation )%>
+  <%= link_to "Add Your organisation's profile", new_organisations_profile_path  %>
 <% end %>
+
+
+
+
 <div class="card-rows">
   <% @organisations_profiles.map do |organisations_profile| %>
-    <div class="card" style="width: 18rem;">
-        <p><%= image_tag(organisations_profile.picture, class:"card-img-top") if organisations_profile.picture.attached? %></p>
+    <div class="card">
+      <%= image_tag organisations_profile.pictures.find(2) if organisations_profile.pictures.attached?%>   
       
       <div class="card-body">
-        <h5 class="card-title"><%= organisations_profile.name %></h5>
+        <h5 class="card-title"><%= organisations_profile.organisation_name %></h5>
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Muscle groups: <%= organisations_profile.muscle_groups%></li>
+        <li class="list-group-item"> <%= organisations_profile.bio%></li>
       </ul>
 
       <div class="card-body">
-        <%= link_to 'Show', organisations_profile %>
-        <%#= link_to 'Edit', edit_exercise_gallery_path(organisations_profile) %>
+        <%= link_to 'Read More', organisations_profile %>
+        <% if current_organisation %>
+        <%= link_to 'Edit', edit_organisations_profile_path(organisations_profile) %>
+        <% end %>
         <%#= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
   <% end %>
 </div>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Organisation name</th>
-      <th>Contact name</th>
-      <th>Phone number</th>
-      <th>Address 1</th>
-      <th>Address 2</th>
-      <th>Suburb</th>
-      <th>State</th>
-      <th>Postcode</th>
-      <th>Bio</th>
-      <th>Rating</th>
-      <th>Organisation</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organisations_profiles.each do |organisations_profile| %>
-      <tr>
-        <td><%= organisations_profile.organisation_name %></td>
-        <td><%= organisations_profile.contact_name %></td>
-        <td><%= organisations_profile.phone_number %></td>
-        <td><%= organisations_profile.address_1 %></td>
-        <td><%= organisations_profile.address_2 %></td>
-        <td><%= organisations_profile.suburb %></td>
-        <td><%= organisations_profile.state %></td>
-        <td><%= organisations_profile.postcode %></td>
-        <td><%= organisations_profile.bio %></td>
-        <td><%= organisations_profile.rating %></td>
-        <td><%= organisations_profile.organisation_id %></td>
-        <td><%= link_to 'Show', organisations_profile %></td>
-        <td><%= link_to 'Edit', edit_organisations_profile_path(organisations_profile) %></td>
-        <td><%= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 
 

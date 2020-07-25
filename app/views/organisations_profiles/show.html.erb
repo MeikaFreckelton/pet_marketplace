@@ -1,8 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<% @organisations_profile.pictures.each do |picture| %>
+<div class="col-md-6">
+<%= image_tag picture, class: "d-block w-100"%>
+</div>
+<% end %>
+<%= @organisations_profile.organisation_name %>
+<p>insert rating here</p>
+
+
+
+
 <p>
   <strong>Organisation name:</strong>
-  <%= @organisations_profile.organisation_name %>
+  
 </p>
 
 <p>
@@ -50,10 +61,7 @@
   <%= @organisations_profile.rating %>
 </p>
 
-<p>
-  <strong>Organisation:</strong>
-  <%= @organisations_profile.organisation_id %>
-</p>
+
 
 <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
 <%= link_to 'Back', organisations_profiles_path %>

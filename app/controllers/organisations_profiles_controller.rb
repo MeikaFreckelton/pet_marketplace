@@ -1,6 +1,6 @@
 class OrganisationsProfilesController < ApplicationController
   before_action :set_organisations_profile, only: [:show, :edit, :update, :destroy]
-
+  # before_action :authenticate_organisation!, only: [:new, :create]
   # GET /organisations_profiles
   # GET /organisations_profiles.json
   def index
@@ -14,7 +14,8 @@ class OrganisationsProfilesController < ApplicationController
 
   # GET /organisations_profiles/new
   def new
-    # @organisations_id = current_u
+    # @organisation_id = 
+  
     @organisations_profile = OrganisationsProfile.new
   end
 
@@ -25,7 +26,12 @@ class OrganisationsProfilesController < ApplicationController
   # POST /organisations_profiles
   # POST /organisations_profiles.json
   def create
+
     @organisations_profile = OrganisationsProfile.new(organisations_profile_params)
+    @organisations_profile.organisation_id = current_organisation.id #find(params[:id])
+    @organisations_profile.save
+    # @organisations_profile = current_organisation.OrganisationsProfile.create(organisation_profile_params)
+    # 
 
     respond_to do |format|
       if @organisations_profile.save
@@ -70,6 +76,10 @@ class OrganisationsProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organisations_profile_params
-      params.require(:organisations_profile).permit(:organisation_name, :contact_name, :phone_number, :address_1, :address_2, :suburb, :state, :postcode, :bio, :rating, :organisation_id)
+      params.require(:organisations_profile).permit(:organisation_name, :contact_name, :phone_number, :address_1, :address_2, :suburb, :state, :postcode, :bio, :rating, :organisation_id, pictures: [])
     end
+
+    # def set_organisations_profile
+    #   @organisations_profile.organisations_id = current_organisation.id
+    # end
 end

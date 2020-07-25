@@ -13,21 +13,17 @@
 
     <div class="navbar-nav">
         <%= link_to "Listings", listings_path, class:"nav-item nav-link"%> 
-        <%# <a class="nav-item nav-link" href="#">Listings</a> %>
         <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link" %>
-        <%# <a class="nav-item nav-link" href="#">Organisations</a> %>
-        <%# <a class="nav-item nav-link" href="#">Resources</a> %>
-        <%#= link_to "Resources", /, class:"nav-item nav-link" %>
-        <%# <a class="nav-item nav-link" href="#">Contact</a> %>
+        
     </div>
     <div class="navbar-nav">
         <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Donate</button></a>
     </div>
     <div class="navbar-nav">
-        <% if user_signed_in? %>
+        <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
             <button type="button" class="btn btn-primary"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
         <% else %>
-            <button type="button" class="btn btn-primary"><%= link_to "Login", login_page_path%></button>
+            <button type="button" class="btn btn-primary"><%= link_to "Login", "/" %></button>
         <% end %>
     </div>
 
