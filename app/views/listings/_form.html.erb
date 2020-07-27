@@ -4,23 +4,38 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <div class="listing-inputs">
     <%= f.input :name %>
     <%= f.input :age %>
+    </div>
+    <div class="listing-inputs">
     <%= f.input :location %>
     <%= f.input :price %>
+    </div>
+    <div class="listing-inputs">
     <%= f.input :breed %>
-    <%= f.input :sex %>
-    <%= f.input :animal_type %>
+    <%= f.input :sex, as: :select, collection: [["0", "female"], ["1", "male"]], label_method: :second, value_method: :first %>
+    <%= f.input :animal_type, as: :select, collection: [["0", "dog"],["1", "cat"],["2", "rabbit"],["3", "bird"]], label_method: :second, value_method: :first %>
+    </div>
+    <div class="listing-inputs">
     <%= f.input :microchip_number %>
-    <%= f.input :desexed_status %>
-    <%= f.input :expected_size %>
-    <%= f.input :vaccination_status %>
+    <%= f.input :desexed_status, as: :select, collection: [["0", "desexed"], ["1", "not desexed"]], label_method: :second, value_method: :first  %>
+    </div>
+    <div class="listing-inputs">
+    <%= f.input :expected_size, label: "Expected adult size(if applicable)", as: :select, collection: [["0", "very small"], ["1", "small"],["2", "medium"],["3", "large"],["4", "Very large"]], label_method: :second, value_method: :first   %>
+    <%= f.input :vaccination_status, as: :select, collection: [["0", "vaccinated"], ["1", "unvaccinated"]], label_method: :second, value_method: :first   %>
+    </div>
+    
     <%= f.input :health_status %>
+    <%= f.input :vaccination_details %>
+    <%= f.input :description %>
+
+    <div class="listing-inputs">
     <%= f.input :phone_number %>
     <%= f.input :email %>
-    <%= f.input :description %>
-    <%= f.input :vaccination_details %>
-   
+    </div>
+    
+    <%= f.file_field :pictures, multiple: true%>
   </div>
 
   <div class="form-actions">

@@ -20,6 +20,9 @@
         <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Donate</button></a>
     </div>
     <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Your Account</button></a>
+    </div>
+    <div class="navbar-nav">
         <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
             <button type="button" class="btn btn-primary"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
         <% else %>

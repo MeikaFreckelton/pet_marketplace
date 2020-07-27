@@ -8,12 +8,12 @@
 <div class="card-rows">
   <% @listings.map do |listing| %>
     <div class="card">
-      <%#= image_tag listing.pictures.find(2) if listing.pictures.attached?%>   
+      <%= image_tag listing.pictures.first if listing.pictures.attached?    %>
       
-      <div class="card-body">
-        <h5 class="card-title"><%= listing.name %></h5>
-        <h6 class="card-title"><%= listing.age %></h6>
-        <h4 class="card-title"><%= listing.price %></h4>
+      <div class="card-body listing-row">
+        <h4 class="card-title"><%= listing.name %></h4>
+        <h4 class="card-title"><%= listing.age %></h4>
+        <h4 class="card-title">$<%= listing.price %></h4>
       </div>
 
       <ul class="list-group list-group-flush">

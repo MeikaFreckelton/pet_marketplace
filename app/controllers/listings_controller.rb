@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_dropdowns, only: [:edit, :new]
   # before_action (:authenticate_user! || :authenticate_organisation! || :authenticate_admin!)
   # validates :
 
@@ -73,8 +74,15 @@ class ListingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:name, :age, :location, :price, :breed, :sex, :animal_type, :microchip_number, :desexed_status, :expected_size, :vaccination_status, :health_status, :phone_number, :email, :description, :vaccination_details, :organisations_profile_id, :users_profile_id)
+      params.require(:listing).permit(:name, :age, :location, :price, :breed, :sex, :animal_type, :microchip_number, :desexed_status, :expected_size, :vaccination_status, :health_status, :phone_number, :email, :description, :vaccination_details, :organisations_profile_id, :users_profile_id, pictures: [])
     end
+
+    def set_dropdowns
+      @sexes = Listing.sexes.keys
+      @vaccination_statuses = Listing.vaccination_statuses.keys
+      @desexed_statuses = Listing.desexed_statuses.keys
+    end
+
 end
 
 
