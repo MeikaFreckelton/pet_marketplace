@@ -3,5 +3,5 @@ class Organisation < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :organisation_profile
+  has_one :organisations_profile
 end

@@ -15,9 +15,15 @@
  */
  @import "bootstrap";
 
- .navbar{
+ #navbar{
    background-color: #dbffe6;
+   margin-bottom: 0;
+   
+
+
  }
+
+
  .navbar-brand{
    font-weight: 500;
    font-size: 1.75em
@@ -46,3 +52,5 @@
       height: 12em;
    }
 }
+
+

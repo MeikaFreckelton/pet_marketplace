@@ -35,7 +35,7 @@
     <%= f.input :email %>
     </div>
     
-    <%= f.file_field :pictures, multiple: true%>
+    <%= f.file_field :pictures, multiple: true, :accept 'image/jpeg, image/png'%>
   </div>
 
   <div class="form-actions">

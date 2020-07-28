@@ -1,1 +1,42 @@
-<h1>home page woooo</h1>
+
+<div class="about-page">
+    <div class="home-title">
+        <% if current_user %>
+            <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>
+        <% elsif current_organisation %>
+            <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
+        <% end %>
+    </div>
+<%= render "shared/carousel"%>
+    <div class="about-buttons">
+    <button type="button" class="btn btn-primary btn-lg">View current listings</button>
+    <% if current_organisation %>
+        <button type="button" class="btn btn-primary btn-lg">Create new listing</button>
+    <% end %>
+    <button type="button" class="btn btn-primary btn-lg">View Organisations</button>
+    <button type="button" class="btn btn-primary btn-lg">Make a donaton</button>
+    <button type="button" class="btn btn-primary btn-lg">View your account</button>
+    </div>
+
+
+
+    <div class="about-text">
+    <h2>About us...</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Vero doloribus, rem voluptates dolorem debitis esse cumque tempore 
+    aut reiciendis sit sint saepe vitae dolores eos magni! Eaque neque beatae at?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit animi non 
+    veritatis, at fuga quaerat consectetur facilis enim delectus molestias iste 
+    in quis magnam suscipit placeat labore debitis voluptas atque.Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Vero doloribus, rem voluptates dolorem debitis esse cumque tempore 
+    aut reiciendis sit sint saepe vitae dolores eos magni! Eaque neque beatae at?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Vero doloribus, rem voluptates dolorem debitis esse cumque tempore 
+    aut reiciendis sit sint saepe vitae dolores eos magni! Eaque neque beatae at?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit animi non 
+    veritatis, at fuga quaerat consectetur facilis enim delectus molestias iste 
+    in quis magnam suscipit placeat labore debitis voluptas atque.</p>
+    </div>
+</div>
+

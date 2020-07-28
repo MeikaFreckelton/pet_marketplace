@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" >
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar" >
   <a class="navbar-brand" href="/">Pet Place</a>
   <%# <span class="navbar-brand mb-0 h1">Pet Place</span> %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,13 @@
         <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Donate</button></a>
     </div>
     <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Your Account</button></a>
+        <button type="button" class="btn btn-primary">
+        <% if current_user %>
+        <%= link_to "Your account", current_user.users_profile_path %>
+        <% elsif current_organisation %>
+        <%= link_to "Your Account", current_organisation.organisations_profile %>
+        <% end %>
+        </button>
     </div>
     <div class="navbar-nav">
         <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
