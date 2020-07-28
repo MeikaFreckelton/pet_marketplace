@@ -11,7 +11,7 @@
 <div class="card-rows">
   <% @organisations_profiles.map do |organisations_profile| %>
     <div class="card">
-      <%= image_tag organisations_profile.pictures.find(1) if organisations_profile.pictures.attached?%>   
+      <%= image_tag organisations_profile.pictures if organisations_profile.pictures.attached?%>   
       
       <div class="card-body">
         <h5 class="card-title"><%= organisations_profile.organisation_name %></h5>

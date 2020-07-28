@@ -5,16 +5,8 @@
 <%= image_tag picture, class: "d-block w-100"%>
 </div>
 <% end %>
-<%= @organisations_profile.organisation_name %>
+<h1><%= @organisations_profile.organisation_name %></h1>
 <p>insert rating here</p>
-
-
-
-
-<p>
-  <strong>Organisation name:</strong>
-  
-</p>
 
 <p>
   <strong>Contact name:</strong>
@@ -27,38 +19,34 @@
 </p>
 
 <p>
-  <strong>Address 1:</strong>
-  <%= @organisations_profile.address_1 %>
-</p>
-
-<p>
-  <strong>Address 2:</strong>
-  <%= @organisations_profile.address_2 %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
+  <strong>Address:</strong>
+  <%= @organisations_profile.address_1 %>,
   <%= @organisations_profile.suburb %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @organisations_profile.state %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
+  <%= @organisations_profile.state %>,
   <%= @organisations_profile.postcode %>
 </p>
+
+<% if @organisations_profile.address_2.length > 0 %>
+  <p>
+    <strong>Address 2:</strong>
+    <%= @organisations_profile.address_2 %>
+  </p>
+<% end%>
 
 <p>
   <strong>Bio:</strong>
   <%= @organisations_profile.bio %>
 </p>
 
+<h3>Login Details:</h3>
+
 <p>
-  <strong>Rating:</strong>
-  <%= @organisations_profile.rating %>
+  <strong>Email:</strong>
+  <%= @organisations_profile.organisation.email %>
+</p>
+<p>
+  <strong>Password</strong>
+  <p>insert change password link here</p>
 </p>
 
 
