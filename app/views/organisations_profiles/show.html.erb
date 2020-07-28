@@ -6,7 +6,8 @@
 </div>
 <% end %>
 <h1><%= @organisations_profile.organisation_name %></h1>
-<p>insert rating here</p>
+
+<%= @organisations_profile.organisation_id%>
 
 <p>
   <strong>Contact name:</strong>
@@ -26,7 +27,7 @@
   <%= @organisations_profile.postcode %>
 </p>
 
-<% if @organisations_profile.address_2.length > 0 %>
+<% if @organisations_profile.address_2 == nil || @organisations_profile.address_2.length > 0   %>
   <p>
     <strong>Address 2:</strong>
     <%= @organisations_profile.address_2 %>
@@ -38,8 +39,10 @@
   <%= @organisations_profile.bio %>
 </p>
 
-<h3>Login Details:</h3>
 
+
+<% if current_organisation.organisations_profile.id == @organisations_profile.id %>
+<h3>Login Details:</h3>
 <p>
   <strong>Email:</strong>
   <%= @organisations_profile.organisation.email %>
@@ -48,8 +51,10 @@
   <strong>Password</strong>
   <p>insert change password link here</p>
 </p>
+<% end %>
 
 
-
+<% if @organisations_profile.organisation_id == current_organisation.id %>
 <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
+<% end %>
 <%= link_to 'Back', organisations_profiles_path %>

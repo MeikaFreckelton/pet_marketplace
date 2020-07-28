@@ -14,19 +14,19 @@
     <div class="navbar-nav">
         <%= link_to "Listings", listings_path, class:"nav-item nav-link"%> 
         <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link" %>
-        <%= link_to "Resources", organisations_profiles_path, class:"nav-item nav-link" %>
+        <%= link_to "Resources", links_path, class:"nav-item nav-link" %>
     </div>
     <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#"><button type="button" class="btn btn-primary">Donate</button></a>
+        <button type="button" class="btn btn-primary"><%= link_to "Donate", donate_path%></button>
     </div>
     <div class="navbar-nav">
-        <button type="button" class="btn btn-primary">
+        
         <% if current_user %>
-        <%= link_to "Your account", current_user.users_profile_path %>
+        <button type="button" class="btn btn-primary"><%= link_to "Your account", current_user.users_profile_path %></button>
         <% elsif current_organisation %>
-        <%= link_to "Your Account", current_organisation.organisations_profile %>
+        <button type="button" class="btn btn-primary"><%= link_to "Your Account", current_organisation.organisations_profile %></button>
         <% end %>
-        </button>
+        
     </div>
     <div class="navbar-nav">
         <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
@@ -37,3 +37,5 @@
     </div>
 
 </nav>
+
+

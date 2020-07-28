@@ -17,7 +17,20 @@ Rails.application.routes.draw do
   get "/login/organisations", to: "login#organisation", as: "organisation_login"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  # donate page 
+  get "/donate/", to: "donate#index", as: "donate"
   
+  # resources page
+  get "/links/", to: "links#index", as: "links"
 
 
 end
+
+
+
+
+# profiles :
+
+# orgs :
+# email: email@gmail.com
+# password 1-6

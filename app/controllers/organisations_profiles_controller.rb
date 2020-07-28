@@ -21,6 +21,9 @@ class OrganisationsProfilesController < ApplicationController
 
   # GET /organisations_profiles/1/edit
   def edit
+    if current_organisation != @organisations_profile
+      redirect_to organisations_profile_path
+    end
   end
 
   # POST /organisations_profiles
@@ -71,7 +74,7 @@ class OrganisationsProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_organisations_profile
-      @organisations_profile = OrganisationsProfile.find(params[:id])
+      @organisations_profile = OrganisationsProfile.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.

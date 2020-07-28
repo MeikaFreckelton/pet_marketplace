@@ -22,6 +22,9 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    if @listing.organisations_profile.id != current_organisation.organisations_profile.id
+      redirect_to listing_path
+    end
   end
 
   # POST /listings

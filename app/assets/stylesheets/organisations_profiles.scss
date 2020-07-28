@@ -1,3 +1,29 @@
 // Place all the styles related to the OrganisationsProfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.card-rows{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .card{
+        margin: 5%;
+
+        .profile-links{
+            background-color: #dbffe6;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .profile-edit-link{
+                background-color: white;
+               
+                
+            }
+
+
+        }
+        
+        
+    }
+
+}

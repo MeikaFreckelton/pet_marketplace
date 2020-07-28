@@ -1,22 +1,29 @@
 
 <div class="about-page">
     <div class="home-title">
-        <% if current_user %>
+        <% if current_user.users_profile.first_name != nil %>
             <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>
-        <% elsif current_organisation %>
+        <% elsif current_organisation.organisations_profile.organisation_name != nil %>
             <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
+        <% else %>
+            <h1> Welcome to pet place!</h1>
         <% end %>
     </div>
 <%= render "shared/carousel"%>
     <div class="about-buttons">
-    <button type="button" class="btn btn-primary btn-lg">View current listings</button>
+    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View current listings", listings_path%></button>
     <% if current_organisation %>
-        <button type="button" class="btn btn-primary btn-lg">Create new listing</button>
+        <button type="button" class="btn btn-primary btn-lg"><%= link_to "Create a new listing", new_listing_path %></button>
     <% end %>
-    <button type="button" class="btn btn-primary btn-lg">View Organisations</button>
-    <button type="button" class="btn btn-primary btn-lg">View resources</button>
-    <button type="button" class="btn btn-primary btn-lg">Make a donaton</button>
-    <button type="button" class="btn btn-primary btn-lg">View your account</button>
+    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View Organisations", organisations_profiles_path%></button>
+    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View resources", links_path %></button>
+    <button type="button" class="btn btn-primary btn-lg"><%= link_to "Make a donation", donate_path %></button>
+    <button type="button" class="btn btn-primary btn-lg">
+    <% if current_user %>
+        <%= link_to "View your account", current_user.users_profile_path %>
+    <% elsif current_organisation %>
+        <%= link_to "View your Account", current_organisation.organisations_profile %>
+    <% end %>
     </div>
 
 
