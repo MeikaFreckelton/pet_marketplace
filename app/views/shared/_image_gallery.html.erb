@@ -1,0 +1,35 @@
+<div class="image-wrapper">
+    <div class="row">
+    
+        <div class="column">
+            <%= image_tag "bunny1.jpg", alt:"bunny", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="bunny1.jpg" alt="Nature" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+        <%= image_tag "bunny2.jpg", alt:"bunny", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="bunny2.jpg" alt="Snow" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+        <%= image_tag "cat1.jpg", alt:"bunny", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="cat1.jpg" alt="Mountains" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+        <%= image_tag "dogs2.jpg", alt:"bunny", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="dogs2.jpg" alt="Lights" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        </div>
+        <div class="container-listing">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+        
+    </div>
+</div>
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  
+  expandImg.parentElement.style.display = "block";
+}
+</script>

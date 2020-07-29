@@ -14,16 +14,16 @@
     </div>
     <div class="listing-inputs">
     <%= f.input :breed %>
-    <%= f.input :sex, as: :select, collection: [["0", "female"], ["1", "male"]], label_method: :second, value_method: :first %>
-    <%= f.input :animal_type, as: :select, collection: [["0", "dog"],["1", "cat"],["2", "rabbit"],["3", "bird"]], label_method: :second, value_method: :first %>
+    <%= f.input :sex, as: :select, collection: [["female", "female"], ["male", "male"]], label_method: :second, value_method: :first %>
+    <%= f.input :animal_type, as: :select, collection: [["dog", "dog"],["cat", "cat"],["rabbit", "rabbit"],["bird", "bird"]], label_method: :second, value_method: :first %>
     </div>
     <div class="listing-inputs">
     <%= f.input :microchip_number %>
-    <%= f.input :desexed_status, as: :select, collection: [["0", "desexed"], ["1", "not desexed"]], label_method: :second, value_method: :first  %>
+    <%= f.input :desexed_status, as: :select, collection: [["desexed", "desexed"], ["not desexed", "not desexed"]], label_method: :second, value_method: :first  %>
     </div>
     <div class="listing-inputs">
-    <%= f.input :expected_size, label: "Expected adult size(if applicable)", as: :select, collection: [["0", "very small"], ["1", "small"],["2", "medium"],["3", "large"],["4", "Very large"]], label_method: :second, value_method: :first   %>
-    <%= f.input :vaccination_status, as: :select, collection: [["0", "vaccinated"], ["1", "unvaccinated"]], label_method: :second, value_method: :first   %>
+    
+    <%= f.input :vaccination_status, as: :select, collection: [["vaccinated", "vaccinated"], ["unvaccinated", "unvaccinated"]], label_method: :second, value_method: :first   %>
     </div>
     
     <%= f.input :health_status %>
@@ -34,6 +34,10 @@
     <%= f.input :phone_number %>
     <%= f.input :email %>
     </div>
+
+    <h5>If animal is not yet fully grown:</h5>
+    <%= f.input :expected_size, label: "Expected adult size", as: :select, collection: [["very small", "very small"], ["small", "small"],["medium", "medium"],["large", "large"],["Very large", "Very large"]], label_method: :second, value_method: :first   %>
+    
     
     <%= f.file_field :pictures, multiple: true, :accept => 'image/jpeg, image/png'%>
   </div>

@@ -1,103 +1,90 @@
 <p id="notice"><%= notice %></p>
 
+<%#= @listing.pictures if @listing.pictures.attached? %>
+<div class="listing-top-wrapper">
+  <%= render "/shared/image_gallery"%>
+
+
+  <div class="top-column">
+    <h1><%= @listing.name %></h1>
+    <h3><%= @listing.age %></h3>
+
+    <p>
+      <%# <strong>Breed:</strong> %>
+      <%= @listing.animal_type %> - <%= @listing.breed %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= @listing.location %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      $<%= @listing.price %>
+    </p>
 
 
 
+    <p>
+      <strong>Sex:</strong>
+      <%= @listing.sex %>
+    </p>
 
 
 
+    <p>
+      <strong>Microchip number:</strong>
+      <%= @listing.microchip_number %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @listing.name %>
-</p>
+    <p>
+      <strong>Desexed status:</strong>
+      <%= @listing.desexed_status %>
+    </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @listing.age %>
-</p>
+    <% if @listing.expected_size.length > 0 %>
+      <p>
+        <strong>Expected size:</strong>
+        <%= @listing.expected_size %>
+      </p>
+    <% end %>
+    <p>
+      <strong>Vaccination status:</strong>
+      <%= @listing.vaccination_status %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @listing.location %>
-</p>
+    <h4>Contact details:</h4>
+    <p>
+      <strong>Phone number:</strong>
+      <%= @listing.phone_number %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @listing.email %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Breed:</strong>
-  <%= @listing.breed %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @listing.sex %>
-</p>
 
-<p>
-  <strong>Animal type:</strong>
-  <%= @listing.animal_type %>
-</p>
-
-<p>
-  <strong>Microchip number:</strong>
-  <%= @listing.microchip_number %>
-</p>
-
-<p>
-  <strong>Desexed status:</strong>
-  <%= @listing.desexed_status %>
-</p>
-
-<p>
-  <strong>Expected size:</strong>
-  <%= @listing.expected_size %>
-</p>
-
-<p>
-  <strong>Vaccination status:</strong>
-  <%= @listing.vaccination_status %>
-</p>
-
-<p>
-  <strong>Health status:</strong>
-  <%= @listing.health_status %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @listing.phone_number %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @listing.email %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @listing.description %>
-</p>
-
-<p>
-  <strong>Vaccination details:</strong>
-  <%= @listing.vaccination_details %>
-</p>
-
-<p>
-  <strong>Organisations profile:</strong>
-  <%= @listing.organisations_profile_id %>
-</p>
-
-<p>
-  <strong>Users profile:</strong>
-  <%= @listing.users_profile_id %>
-</p>
 
 <% if current_organisation.id == @listing.organisations_profile.organisation.id %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>
 <%= link_to 'Back', listings_path %>
+
+<div class="listing-about-sections">
+  <h3>About <%= @listing.name %>...</h3>
+  <%= @listing.description %>
+</div>
+
+<div class="listing-about-sections">
+  <h3>About their health</h3>
+  <%= @listing.health_status %>
+</div>
+<div class="listing-about-sections">
+  <h3>About their vaccinations</h3>
+  <%= @listing.vaccination_details %>
+</div>

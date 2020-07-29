@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_051911) do
+ActiveRecord::Schema.define(version: 2020_07_29_021857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2020_07_28_051911) do
     t.string "location"
     t.float "price"
     t.string "breed"
-    t.integer "sex"
+    t.string "sex"
     t.string "animal_type"
-    t.float "microchip_number"
-    t.integer "desexed_status"
+    t.integer "microchip_number"
+    t.string "desexed_status"
     t.string "expected_size"
-    t.integer "vaccination_status"
+    t.string "vaccination_status"
     t.text "health_status"
     t.integer "phone_number"
     t.string "email"
