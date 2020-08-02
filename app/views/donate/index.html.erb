@@ -1,40 +1,51 @@
-<h1>Make a Donation</h1>
-<%# make button %>
-<%= link_to "Read about out organisations here", organisations_profiles_path %>
+
+<div class="donate-wrapper">
+    <div class="donate-centered">
+        <h1>Make a Donation</h1>
+        <%# make button %>
+        <%= link_to "Read about out organisations here", organisations_profiles_path %>
 
 
-<%# add image, add organisation, add location, add donate button %>
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">This month's featured organisation </h5>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <%# add image, add organisation, add location, add donate button %>
+        <div class="card" id="donate-card">
+            <div class="card-body card-title-border">
+                <h5 class="card-title">This month's featured organisation </h5>
+                <%# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> %>
+            </div>
+            <img class="card-img-bottom" src="..." alt="Card image cap">
+            <div class="card-body" id="donate-card-body">
+                <h5 class="card-title donate-organisation">Some animal rescue name</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-body" id="donate-button">
+                <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Donate", "/"%></button>
+            </div>
+        </div>
     </div>
-    <img class="card-img-bottom" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Some animal rescue name</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+
+
+
+
+    <div class="donate-location">
+    <h3>donate to a shelter near you</h3>
+    <h4>Enter a postcode/suburb name below</h4>
+    <p>insert location search</p>
+    </div>
+
+    <div class="donate-list">
+        <h3>Or choose from the list below</h3>
+        <p>insert list of profiles with donate links</p>
+        <% @organisations_profiles.map do |profile| %>
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><%= profile.organisation_name%></h5>
+                <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
+                <p class="card-text"><%= profile.suburb %>,<%= profile.state %></p>
+                <%= link_to "read more", "/", class:"card-link"%>
+                <%= link_to "donate", "/", class:"card-link"%>
+            </div>
+            </div>
+        <% end %>
     </div>
 </div>
-
-
-
-
-<div class="featured-org">
-    <h3>This month's featured organisation </h3>
-    <h4>location</h4>
-    <%#= image_tag %>
-    <h3>organisation name</h3>
-    <p>description</p>
-    <%#= link_to donate page%>
-</div>
-
-<div class="donate-location">
-<h3>donate to a shelter near you</h3>
-<h4>Enter a postcode/suburb name below</h4>
-<p>insert location search</p>
-</div>
-
-<div class="donate-list">
-    <h3>Or choose from the list below</h3>
-</div>
-

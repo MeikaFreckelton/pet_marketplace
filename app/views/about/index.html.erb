@@ -1,10 +1,14 @@
 
 <div class="about-page">
     <div class="home-title">
-        <% if current_user.users_profile.first_name != nil %>
-            <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>
-        <% elsif current_organisation.organisations_profile.organisation_name != nil %>
-            <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
+        <% if current_user %>
+            <% if current_user.users_profile.first_name != nil %>
+                <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>
+            <% end %>
+        <% elsif current_organisation %>
+            <% if current_organisation.organisations_profile.organisation_name != nil %>
+                <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
+            <% end %>
         <% else %>
             <h1> Welcome to pet place!</h1>
         <% end %>

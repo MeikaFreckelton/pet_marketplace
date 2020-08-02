@@ -1,3 +1,44 @@
 // Place all the styles related to the Donate controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.donate-wrapper{
+    display: flex;
+    flex-direction: column;
+    .donate-centered{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+
+}
+
+#donate-card{
+    width: 30em;
+    border: 0.025em solid rgba(0, 0, 0, 0.3);
+}
+
+.card-title-border{
+    border-bottom: 0.025em solid rgba(0, 0, 0, 0.3);
+}
+
+.donate-organisation{
+    background-color: #cfcfcf;
+    width: 100%;
+    margin: 1.25rem 0 0 0;
+    padding: 0.3em 1.25em 0.3em 1.25rem;
+    text-align: center;
+}
+#donate-card-body{
+    padding: 0;
+    p{
+        padding: 0 1.25rem 1.25rem 1.25rem;
+    }
+
+}
+
+#donate-button{
+    padding: 0;
+    
+}

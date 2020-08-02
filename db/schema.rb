@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_021857) do
+ActiveRecord::Schema.define(version: 2020_08_02_214711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,17 +48,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_021857) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "average_caches", force: :cascade do |t|
-    t.bigint "rater_id"
-    t.string "rateable_type"
-    t.bigint "rateable_id"
-    t.float "avg", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["rateable_type", "rateable_id"], name: "index_average_caches_on_rateable_type_and_rateable_id"
-    t.index ["rater_id"], name: "index_average_caches_on_rater_id"
-  end
-
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.string "age"
@@ -82,6 +71,14 @@ ActiveRecord::Schema.define(version: 2020_07_29_021857) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organisations_profile_id"], name: "index_listings_on_organisations_profile_id"
     t.index ["users_profile_id"], name: "index_listings_on_users_profile_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -112,17 +109,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_021857) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["organisation_id"], name: "index_organisations_profiles_on_organisation_id"
-  end
-
-  create_table "rating_caches", id: :serial, force: :cascade do |t|
-    t.string "cacheable_type"
-    t.integer "cacheable_id"
-    t.float "avg", null: false
-    t.integer "qty", null: false
-    t.string "dimension"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
   end
 
   create_table "users", force: :cascade do |t|

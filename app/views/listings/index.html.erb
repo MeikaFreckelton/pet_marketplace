@@ -7,7 +7,7 @@
 
 <div class="card-rows">
   <% @listings.map do |listing| %>
-    <div class="card">
+    <div class="card" id="listing-card">
       <%= image_tag listing.pictures.first if listing.pictures.attached?    %>
       
       <div class="card-body listing-row">
@@ -21,6 +21,9 @@
       </ul>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> <%= listing.location %></li>
+      </ul>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <%= listing.organisations_profile.organisation_name %></li>
       </ul>
 
       <div class="card-body">
@@ -37,6 +40,4 @@
 
 
 
-<% if current_organisation %>
-<%= link_to 'New Listing', new_listing_path %>
-<% end %>
+

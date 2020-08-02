@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   devise_for :admins, path: 'admins', controllers: {sessions: 'users/sessions'}
   resources :listings
   resources :organisations_profiles

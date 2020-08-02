@@ -6,13 +6,14 @@
 
 
   <div class="top-column">
-    <h1><%= @listing.name %></h1>
-    <h3><%= @listing.age %></h3>
-
-    <p>
+    
+    <h1><%= @listing.name %></h1> 
+    <h2 class="age"><%= @listing.age %></h2>
+    
+    <h3 class="breed">
       <%# <strong>Breed:</strong> %>
-      <%= @listing.animal_type %> - <%= @listing.breed %>
-    </p>
+      <span class="listing-underline"><%= @listing.animal_type %></span> - <%= @listing.breed %>
+    </h3>
 
     <p>
       <strong>Location:</strong>
@@ -53,20 +54,23 @@
       <strong>Vaccination status:</strong>
       <%= @listing.vaccination_status %>
     </p>
+    <h4 class="title">Contact details:</h4>
+    <div class="contact-listing">
+      
+      <p>
+        <strong>Phone number:</strong>
+        <%= @listing.phone_number %>
+      </p>
 
-    <h4>Contact details:</h4>
-    <p>
-      <strong>Phone number:</strong>
-      <%= @listing.phone_number %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @listing.email %>
-    </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @listing.email %>
+      </p>
+    </div>
   </div>
 </div>
-
+<%# turn into link to contact page %>
+<button type="button" class="btn btn-primary btn-lg btn-block">Enquire</button>
 
 
 
@@ -74,17 +78,19 @@
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <% end %>
 <%= link_to 'Back', listings_path %>
-
-<div class="listing-about-sections">
-  <h3>About <%= @listing.name %>...</h3>
-  <%= @listing.description %>
-</div>
-
-<div class="listing-about-sections">
-  <h3>About their health</h3>
-  <%= @listing.health_status %>
-</div>
-<div class="listing-about-sections">
-  <h3>About their vaccinations</h3>
-  <%= @listing.vaccination_details %>
+<div class="listing-details-wrapper">
+  <div class="listing-about-sections listing-description">
+    <h3>About <%= @listing.name %>...</h3>
+    <%= @listing.description %>
+  </div>
+  <div class="listing-details">
+    <div class="listing-about-sections">
+      <h3>About their health</h3>
+      <%= @listing.health_status %>
+    </div>
+    <div class="listing-about-sections">
+      <h3>About their vaccinations</h3>
+      <%= @listing.vaccination_details %>
+    </div>
+  </div>
 </div>
