@@ -10,11 +10,17 @@ class EnquiriesController < ApplicationController
   # GET /enquiries/1
   # GET /enquiries/1.json
   def show
+
   end
 
   # GET /enquiries/new
   def new
-    @enquiry = Enquiry.new
+    if current_user 
+      @enquiry = Enquiry.new
+    else
+      redirect_to listings_path
+    end
+
   end
 
   # GET /enquiries/1/edit
@@ -25,6 +31,7 @@ class EnquiriesController < ApplicationController
   # POST /enquiries.json
   def create
     @enquiry = Enquiry.new(enquiry_params)
+    @enquiry.listing_id
 
     respond_to do |format|
       if @enquiry.save

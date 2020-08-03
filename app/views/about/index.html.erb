@@ -2,18 +2,20 @@
 <div class="about-page">
     <div class="home-title">
         <% if current_user %>
-            <% if current_user.users_profile.first_name != nil %>
-                <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>
+            <% if current_user.users_profile == nil or current_user.users_profile.first_name == nil%>
+                <h1>Welcome to Pet Place!</h1>
+            <% else %>
+                <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>  
             <% end %>
         <% elsif current_organisation %>
             <% if current_organisation.organisations_profile.organisation_name != nil %>
                 <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
+            <% else %>
+                <h1> Welcome to pet place!</h1>
             <% end %>
-        <% else %>
-            <h1> Welcome to pet place!</h1>
         <% end %>
     </div>
-<%= render "shared/carousel"%>
+    <%= render "shared/carousel"%>
     <div class="about-buttons">
     <button type="button" class="btn btn-primary btn-lg"><%= link_to "View current listings", listings_path%></button>
     <% if current_organisation %>
@@ -24,7 +26,11 @@
     <button type="button" class="btn btn-primary btn-lg"><%= link_to "Make a donation", donate_path %></button>
     <button type="button" class="btn btn-primary btn-lg">
     <% if current_user %>
-        <%= link_to "View your account", current_user.users_profile_path %>
+        <% if current_user.users_profile == nil %>
+            <%= link_to "Create Profile", new_users_profile_path %>
+        <% elsif current_user.users_profile != nil%>
+            <%= link_to "View your account", current_user.users_profile_path %>
+        <% end %>
     <% elsif current_organisation %>
         <%= link_to "View your Account", current_organisation.organisations_profile %>
     <% end %>

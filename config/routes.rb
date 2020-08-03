@@ -25,15 +25,10 @@ Rails.application.routes.draw do
   # resources page
   get "/links/", to: "links#index", as: "links"
 
-  
+  # get "/listings/:id/enquiries", to: "enquiries#new", as: "new_enquiry"
 
 end
 
 
 
 
-# profiles :
-
-# orgs :
-# email: email@gmail.com
-# password 1-6

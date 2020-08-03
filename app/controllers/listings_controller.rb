@@ -13,11 +13,17 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @listing_id = Listing.find(params[:id])
+    # @users_profile_id = current_user.users_profile.id
   end
 
   # GET /listings/new
   def new
-    @listing = Listing.new
+    if current_user
+      redirect_to listings_path
+    else
+      @listing = Listing.new
+    end
   end
 
   # GET /listings/1/edit
@@ -80,11 +86,7 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(:name, :age, :location, :price, :breed, :sex, :animal_type, :microchip_number, :desexed_status, :expected_size, :vaccination_status, :health_status, :phone_number, :email, :description, :vaccination_details, :organisations_profile_id, :users_profile_id, pictures: [])
     end
 
-    # def set_dropdowns
-    #   @sexes = Listing.sexes.keys
-    #   @vaccination_statuses = Listing.vaccination_statuses.keys
-    #   @desexed_statuses = Listing.desexed_statuses.keys
-    # end
+    
 
 end
 

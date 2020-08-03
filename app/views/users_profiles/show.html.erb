@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @users_profile.first_name %>
-</p>
+<h1><%= @users_profile.first_name %> <%= @users_profile.last_name %></h1>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @users_profile.last_name %>
+  <strong>Date of birth:</strong>
+  <%= @users_profile.dob %>
 </p>
 
 <p>
@@ -16,34 +13,13 @@
 </p>
 
 <p>
-  <strong>Address 1:</strong>
+  <strong>Address:</strong>
   <%= @users_profile.address_1 %>
 </p>
 
-<p>
-  <strong>Address 2:</strong>
-  <%= @users_profile.address_2 %>
-</p>
 
-<p>
-  <strong>Suburb:</strong>
-  <%= @users_profile.suburb %>
-</p>
 
-<p>
-  <strong>State:</strong>
-  <%= @users_profile.state %>
-</p>
 
-<p>
-  <strong>Postcode:</strong>
-  <%= @users_profile.postcode %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @users_profile.user_id %>
-</p>
 
 <%= link_to 'Edit', edit_users_profile_path(@users_profile) %> |
 <%= link_to 'Back', users_profiles_path %>

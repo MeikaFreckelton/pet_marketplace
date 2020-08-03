@@ -70,8 +70,9 @@
   </div>
 </div>
 <%# turn into link to contact page %>
-<button type="button" class="btn btn-primary btn-lg btn-block">Enquire</button>
-
+<% if current_user %>
+  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(:users_profile => @users_profile_id, :listing_id => @listing_id) %></button>
+<% end %>
 
 
 <% if current_organisation.id == @listing.organisations_profile.organisation.id %>

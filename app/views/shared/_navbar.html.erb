@@ -22,7 +22,11 @@
     <div class="navbar-nav">
         
         <% if current_user %>
-        <button type="button" class="btn btn-primary"><%= link_to "Your account", current_user.users_profile_path %></button>
+            <% if current_user.users_profile == nil %>
+                <button type="button" class="btn btn-primary"><%= link_to "Create profile", new_users_profile_path %></button>
+            <% elsif current_user.users_profile != nil %>
+                <button type="button" class="btn btn-primary"><%= link_to "Your account", current_user.users_profile %></button>
+            <% end %>
         <% elsif current_organisation %>
         <button type="button" class="btn btn-primary"><%= link_to "Your Account", current_organisation.organisations_profile %></button>
         <% end %>
