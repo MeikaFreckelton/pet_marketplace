@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@listing) do |f| %>
+<%= simple_form_for(@listing, data: {controller:"places", action: "google-maps-callback@window->places#initMap"}) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -9,7 +9,7 @@
     <%= f.input :age %>
     </div>
     <div class="listing-inputs">
-    <%= f.input :location %>
+    <%= f.search_field :location, data: { target: "places.field" }  %>
     <%= f.input :price %>
     </div>
     <div class="listing-inputs">
@@ -40,7 +40,14 @@
     
     
     <%= f.file_field :pictures, multiple: true, :accept => 'image/jpeg, image/png'%>
+  
+    <div class="p-4">
+  <div data-target="places.map" style="height:400px; width:400px"></div>
   </div>
+  
+  </div>
+
+  
 
   <div class="form-actions">
     <%= f.button :submit %>

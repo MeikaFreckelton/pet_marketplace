@@ -1,22 +1,5 @@
 
-<%= simple_form_for(@location, data: {controller: "places", action: "google-maps-callback@window->places#initMap"}) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :address, class: "form-control", data: { target: "places.field"} %>
-    <%= f.input :latitude, class: "form-control", data: { target: "places.latitude"}  %>
-    <%= f.input :longitude, class: "form-control", data: { target: "places.longitude"}  %>
-  </div>
-
-  <div>
-  <div data-target="places.map" style="height:400px">
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
 
 <%= form_with(model: [location], local: true, data: {controller:"places", action: "google-maps-callback@window->places#initMap"}) do |f| %>
 
@@ -24,22 +7,26 @@
   <div>
     <div class="form-group">
     <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control', data: {target: "places.field" }%>
+    <%# <%= f.search_field :address, class: 'form-control', data: { target: "places.field" }%> %>
     </div>
 
     <div class="form-group">
     <%= f.label :latitude %>
-    <%= f.text_field :latitude, class: 'form-control', data: {target: "places.latitude" }%>
+    <%= f.text_field :latitude, class: 'form-control', data: { target: "places.latitude" }%>
     </div>
 
     <div class="form-group">
     <%= f.label :longitude %>
-    <%= f.text_field :longitude, class: 'form-control', data: {target: "places.longitude" }%>
+    <%= f.text_field :longitude, class: 'form-control', data: { target: "places.longitude" }%>
     </div>
   </div>
 
-
+  <div class="p-4">
+  <div data-target="places.map" style="height:400px; width:400px"></div>
+  </div>
   
 
 </div>
 <% end %>
+
+
