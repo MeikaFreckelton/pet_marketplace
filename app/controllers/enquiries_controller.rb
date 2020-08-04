@@ -4,19 +4,32 @@ class EnquiriesController < ApplicationController
   # GET /enquiries
   # GET /enquiries.json
   def index
+
     @enquiries = Enquiry.all
+    if current_user
+      redirect_to root_path
+    end
+    
   end
+
+
 
   # GET /enquiries/1
   # GET /enquiries/1.json
   def show
+    
 
   end
 
   # GET /enquiries/new
   def new
     if current_user 
+      if current_user.users_profile == nil
+        redirect_to new_users_profile_path
+      else
       @enquiry = Enquiry.new
+      end
+      
     else
       redirect_to listings_path
     end
@@ -31,7 +44,12 @@ class EnquiriesController < ApplicationController
   # POST /enquiries.json
   def create
     @enquiry = Enquiry.new(enquiry_params)
-    @enquiry.listing_id
+    @enquiry.listing_id = (Listing.find_by(params[:listing_id])).id
+    @enquiry.users_profile_id = (UsersProfile.find_by(user_id: current_user.id)).id
+    @enquiry.organisations_profile_id = (OrganisationsProfile.find_by(params[:organisations_profile_id])).id
+    @enquiry.name = @enquiry.users_profile.first_name
+    @enquiry.email = @enquiry.users_profile.user.email
+    @enquiry.save
 
     respond_to do |format|
       if @enquiry.save

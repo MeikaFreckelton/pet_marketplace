@@ -12,31 +12,37 @@
     </div>
 
     <div class="navbar-nav">
-        <%= link_to "Listings", listings_path, class:"nav-item nav-link"%> 
-        <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link" %>
-        <%= link_to "Resources", links_path, class:"nav-item nav-link" %>
+        <%= link_to "Listings", listings_path, class:"nav-item nav-link", id:"nav-links"%> 
+        <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link", id:"nav-links" %>
+        <%= link_to "Resources", links_path, class:"nav-item nav-link", id:"nav-links" %>
     </div>
     <div class="navbar-nav">
-        <button type="button" class="btn btn-primary"><%= link_to "Donate", donate_path%></button>
+        <button type="button" class="btn btn-custom"><%= link_to "Donate", donate_path%></button>
     </div>
     <div class="navbar-nav">
         
         <% if current_user %>
             <% if current_user.users_profile == nil %>
-                <button type="button" class="btn btn-primary"><%= link_to "Create profile", new_users_profile_path %></button>
+                <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_users_profile_path %></button>
             <% elsif current_user.users_profile != nil %>
-                <button type="button" class="btn btn-primary"><%= link_to "Your account", current_user.users_profile %></button>
+                <button type="button" class="btn btn-custom"><%= link_to "Your account", current_user.users_profile %></button>
             <% end %>
         <% elsif current_organisation %>
-        <button type="button" class="btn btn-primary"><%= link_to "Your Account", current_organisation.organisations_profile %></button>
+            <% if current_organisation.organisations_profile == nil %>
+                <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_organisations_profile_path %></button>
+            <% elsif current_organisation.organisations_profile != nil %>
+                <button type="button" class="btn btn-custom"><%= link_to "Your account", current_organisation.organisations_profile %></button>
+            <% end %>
+
+
         <% end %>
         
     </div>
     <div class="navbar-nav">
         <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
-            <button type="button" class="btn btn-primary"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
+            <button type="button" class="btn btn-custom"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
         <% else %>
-            <button type="button" class="btn btn-primary"><%= link_to "Login", "/" %></button>
+            <button type="button" class="btn btn-custom"><%= link_to "Login", "/" %></button>
         <% end %>
     </div>
 

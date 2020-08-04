@@ -8,33 +8,40 @@
                 <h1>Welcome back <%= current_user.users_profile.first_name%>!</h1>  
             <% end %>
         <% elsif current_organisation %>
-            <% if current_organisation.organisations_profile.organisation_name != nil %>
-                <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
-            <% else %>
+            <% if current_organisation.organisations_profile == nil %>
                 <h1> Welcome to pet place!</h1>
+            <% elsif current_organisation.organisations_profile.organisation_name != nil %>
+                <h1>Welcome back <%= current_organisation.organisations_profile.organisation_name %>!</h1>
             <% end %>
         <% end %>
     </div>
-    <%= render "shared/carousel"%>
+    
+
     <div class="about-buttons">
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View current listings", listings_path%></button>
-    <% if current_organisation %>
-        <button type="button" class="btn btn-primary btn-lg"><%= link_to "Create a new listing", new_listing_path %></button>
-    <% end %>
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View Organisations", organisations_profiles_path%></button>
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "View resources", links_path %></button>
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "Make a donation", donate_path %></button>
-    <button type="button" class="btn btn-primary btn-lg">
-    <% if current_user %>
-        <% if current_user.users_profile == nil %>
-            <%= link_to "Create Profile", new_users_profile_path %>
-        <% elsif current_user.users_profile != nil%>
-            <%= link_to "View your account", current_user.users_profile_path %>
+        <button type="button" class="btn btn-homepage btn-lg"><%= link_to "View current listings", listings_path%></button>
+        <% if current_organisation %>
+            <button type="button" class="btn btn-homepage btn-lg"><%= link_to "Create a new listing", new_listing_path %></button>
         <% end %>
-    <% elsif current_organisation %>
-        <%= link_to "View your Account", current_organisation.organisations_profile %>
-    <% end %>
+        <button type="button" class="btn btn-homepage btn-lg"><%= link_to "View Organisations", organisations_profiles_path%></button>
+        <button type="button" class="btn btn-homepage btn-lg"><%= link_to "View resources", links_path %></button>
+        <button type="button" class="btn btn-homepage btn-lg"><%= link_to "Make a donation", donate_path %></button>
+        <button type="button" class="btn btn-homepage btn-lg">
+        <% if current_user %>
+            <% if current_user.users_profile == nil %>
+                <%= link_to "Create Profile", new_users_profile_path %>
+            <% elsif current_user.users_profile != nil %>
+                <%= link_to "View your account", current_user.users_profile %>
+            <% end %>
+        <% elsif current_organisation %>
+            <% if current_organisation.organisations_profile == nil %>
+                <%= link_to "Create Profile", new_organisations_profile_path %>
+            <% elsif current_organisation.organisations_profile != nil %>
+                <%= link_to "View your account", current_organisation.organisations_profile %>
+            <% end %>
+            
+        <% end %>
     </div>
+    <%= render "shared/carousel"%>
 
 
 

@@ -71,12 +71,14 @@
 </div>
 <%# turn into link to contact page %>
 <% if current_user %>
-  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(:users_profile => @users_profile_id, :listing_id => @listing_id) %></button>
+  <%#= button_to "Enquire", new_enquiry_path, params: {listing_id: @listing.id, organisations_profile_id: @listing.organisations_profile_id}, method: "post"%>
+  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(organisations_profile_id: @listing.organisations_profile_id, listing_id: @listing.id) %></button>
 <% end %>
 
-
-<% if current_organisation.id == @listing.organisations_profile.organisation.id %>
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<% if !current_user %>
+  <% if current_organisation.id == @listing.organisations_profile.organisation.id %>
+    <%= link_to 'Edit', edit_listing_path(@listing) %> |
+  <% end %>
 <% end %>
 <%= link_to 'Back', listings_path %>
 <div class="listing-details-wrapper">

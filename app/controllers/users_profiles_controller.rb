@@ -6,6 +6,9 @@ class UsersProfilesController < ApplicationController
   # GET /users_profiles.json
   def index
     @users_profiles = UsersProfile.all
+    if current_organisation or current_user
+      redirect_to root_path
+    end
   end
 
   # GET /users_profiles/1
@@ -27,7 +30,7 @@ class UsersProfilesController < ApplicationController
   def create
     @users_profile = UsersProfile.new(users_profile_params)
     @users_profile.user_id = current_user.id
-    @users_profile.id = current_user.users_profile.id 
+    # @users_profile.id = current_user.users_profile.id 
     @users_profile.save
 
 

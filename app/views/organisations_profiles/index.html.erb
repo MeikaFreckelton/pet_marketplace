@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Organisations Profiles</h1>
-<% if (current_organisation.organisations_profile == nil )%>
-  <%= link_to "Add Your organisation's profile", new_organisations_profile_path  %>
+<% if !current_user %>
+  <% if current_organisation & (current_organisation.organisations_profile == nil )%>
+    <%= link_to "Add Your organisation's profile", new_organisations_profile_path  %>
+  <% end %>
 <% end %>
 
 
@@ -23,9 +25,11 @@
       <div class="card-body profile-links">
         <%= link_to 'Read More', organisations_profile %>
         <div class="profile-edit-link">
+          <% if !current_user %>
             <% if organisations_profile.organisation_id == current_organisation.id %>
               <%= link_to 'Edit', edit_organisations_profile_path(organisations_profile) %>
             <% end %>
+          <% end %>
           </div>
         <%#= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>

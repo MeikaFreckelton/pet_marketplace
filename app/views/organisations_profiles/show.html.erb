@@ -24,12 +24,7 @@
   <%= @organisations_profile.address_1 %>
 </p>
 
-<% if @organisations_profile.address_2 == nil || @organisations_profile.address_2.length > 0   %>
-  <p>
-    <strong>Address 2:</strong>
-    <%= @organisations_profile.address_2 %>
-  </p>
-<% end%>
+
 
 <p>
   <strong>Bio:</strong>
@@ -37,21 +32,29 @@
 </p>
 
 
-
-<% if current_organisation.organisations_profile.id == @organisations_profile.id %>
-<h3>Login Details:</h3>
-<p>
-  <strong>Email:</strong>
-  <%= @organisations_profile.organisation.email %>
-</p>
-<p>
-  <strong>Password</strong>
-  <p>insert change password link here</p>
-</p>
+<% if !current_user %>
+  <% if current_organisation.organisations_profile.id == @organisations_profile.id %>
+    <h3>Login Details:</h3>
+    <p>
+      <strong>Email:</strong>
+      <%= @organisations_profile.organisation.email %>
+    </p>
+    <p>
+      <strong>Password</strong>
+      <p>insert change password link here</p>
+    </p>
+  <% end %>
 <% end %>
 
-
-<% if @organisations_profile.organisation_id == current_organisation.id %>
-<%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
+<% if !current_user %>
+  <% if @organisations_profile.organisation_id == current_organisation.id %>
+    <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
+  <% end %>
 <% end %>
 <%= link_to 'Back', organisations_profiles_path %>
+
+<% if !current_user %>
+  <% if current_organisation.organisations_profile.id == @organisations_profile.organisation_id %>
+    <%= link_to "View Enquiries", enquiries_path %>
+  <% end %>
+<% end %>

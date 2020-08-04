@@ -15,13 +15,17 @@ class OrganisationsProfilesController < ApplicationController
   # GET /organisations_profiles/new
   def new
     # @organisation_id = 
+    if current_user
+      redirect_to organisations_profiles_path
+    end
   
     @organisations_profile = OrganisationsProfile.new
   end
 
   # GET /organisations_profiles/1/edit
   def edit
-    if current_organisation.id != @organisations_profile.organisation_id
+    
+    if current_user or (current_organisation.id != @organisations_profile.organisation_id)
       redirect_to organisations_profile_path
     end
   end

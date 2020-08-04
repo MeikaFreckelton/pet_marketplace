@@ -28,8 +28,10 @@
 
       <div class="card-body">
         <%= link_to 'Read More', listing %>
-        <% if current_organisation.id == listing.organisations_profile.organisation.id %>
-        <%= link_to 'Edit', edit_listing_path(listing) %>
+        <% if !current_user %>
+          <% if current_organisation.id == listing.organisations_profile.organisation.id %>
+            <%= link_to 'Edit', edit_listing_path(listing) %>
+          <% end %>
         <% end %>
         <%#= link_to 'Destroy', organisations_profile, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
