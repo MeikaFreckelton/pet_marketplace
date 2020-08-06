@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_044821) do
+ActiveRecord::Schema.define(version: 2020_08_05_015315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,10 +48,15 @@ ActiveRecord::Schema.define(version: 2020_08_04_044821) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "donates", force: :cascade do |t|
+  create_table "donations", force: :cascade do |t|
+    t.bigint "users_profile_id", null: false
+    t.bigint "organisations_profile_id", null: false
+    t.float "amount"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "location"
+    t.index ["organisations_profile_id"], name: "index_donations_on_organisations_profile_id"
+    t.index ["users_profile_id"], name: "index_donations_on_users_profile_id"
   end
 
   create_table "enquiries", force: :cascade do |t|
@@ -151,6 +156,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_044821) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "donations", "organisations_profiles"
+  add_foreign_key "donations", "users_profiles"
   add_foreign_key "enquiries", "listings"
   add_foreign_key "enquiries", "organisations_profiles"
   add_foreign_key "enquiries", "users_profiles"

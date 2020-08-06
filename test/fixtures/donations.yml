@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  users_profile: one
+  organisations_profile: one
+  amount: 1.5
+  description: MyText
+
+two:
+  users_profile: two
+  organisations_profile: two
+  amount: 1.5
+  description: MyText

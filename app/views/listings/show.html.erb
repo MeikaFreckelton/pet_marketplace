@@ -2,7 +2,39 @@
 
 <%#= @listing.pictures if @listing.pictures.attached? %>
 <div class="listing-top-wrapper">
-  <%= render "/shared/image_gallery"%>
+  <%#= render "/shared/image_gallery"%>
+  <div class="image-wrapper">
+    <div class="row">
+      <% if @listing.pictures.attached? %>
+        <div class="column">
+            <%= image_tag @listing.pictures.first, alt:"image1", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="bunny1.jpg" alt="Nature" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+            <%= image_tag @listing.pictures.second, alt:"image2", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="bunny2.jpg" alt="Snow" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+            <%= image_tag @listing.pictures.third, alt:"image3", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="cat1.jpg" alt="Mountains" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        <div class="column">
+            <%= image_tag @listing.pictures.fourth, alt:"image4", onclick:"myFunction(this);", style:"width:50%"%>
+            <%# <img src="dogs2.jpg" alt="Lights" style="width:50%" onclick="myFunction(this);"> %>
+        </div>
+        </div>
+        <% end %>
+        <div class="container-listing">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+        <img id="expandedImg" style="width:100%">
+    </div>
+</div>
+
+
+
+
+
+
 
 
   <div class="top-column">
@@ -71,7 +103,7 @@
 </div>
 <%# turn into link to contact page %>
 <% if current_user %>
-  <%#= button_to "Enquire", new_enquiry_path, params: {listing_id: @listing.id, organisations_profile_id: @listing.organisations_profile_id}, method: "post"%>
+  
   <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(organisations_profile_id: @listing.organisations_profile_id, listing_id: @listing.id) %></button>
 <% end %>
 
@@ -97,3 +129,14 @@
     </div>
   </div>
 </div>
+
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  
+  expandImg.src = imgs.src;
+  
+  expandImg.parentElement.style.display = "block";
+}
+</script>

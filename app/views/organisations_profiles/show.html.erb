@@ -1,60 +1,63 @@
-<p id="notice"><%= notice %></p>
-
-<% @organisations_profile.pictures.each do |picture| %>
-<div class="col-md-6">
-<%= image_tag picture, class: "d-block w-100"%>
+<%# heading : %>
+<div class="profile-heading">
+  <h1 class="centered-heading"><%= @organisations_profile.organisation_name %></h1>
 </div>
+
+
+<%# picture :%>
+<% @organisations_profile.pictures.each do |picture| %>
+  <div class="profile-img">
+    <%= image_tag picture%>
+  </div>
 <% end %>
-<h1><%= @organisations_profile.organisation_name %></h1>
-
-<%= @organisations_profile.organisation_id%>
-
-<p>
-  <strong>Contact name:</strong>
-  <%= @organisations_profile.contact_name %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @organisations_profile.phone_number %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @organisations_profile.address_1 %>
-</p>
 
 
+<%# details : %>
+<div class="org-profile">
+  <div class="org-p-top-section">
 
-<p>
-  <strong>Bio:</strong>
-  <%= @organisations_profile.bio %>
-</p>
+    <div class="bio">
+        <h4>About us...</h4>
+        <%= @organisations_profile.bio %>
+    </div>
+
+    <div class="contact-details">
+      <h4>Contact details:</h4>
+      <p>
+        <strong>Contact name:</strong>
+        <%= @organisations_profile.contact_name %>
+      </p>
+
+      <p>
+        <strong>Phone number:</strong>
+        <%= @organisations_profile.phone_number %>
+      </p>
+
+      <p>
+          <strong>Email:</strong>
+          <%= @organisations_profile.organisation.email %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @organisations_profile.address_1 %>
+      </p>
+
+      
+    </div>
+  </div>
 
 
-<% if !current_user %>
-  <% if current_organisation.organisations_profile.id == @organisations_profile.id %>
-    <h3>Login Details:</h3>
-    <p>
-      <strong>Email:</strong>
-      <%= @organisations_profile.organisation.email %>
-    </p>
-    <p>
-      <strong>Password</strong>
-      <p>insert change password link here</p>
-    </p>
+  <% if !current_user %>
+    <% if @organisations_profile.organisation_id == current_organisation.id %>
+      <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
+    <% end %>
   <% end %>
-<% end %>
+  <%= link_to 'Back', organisations_profiles_path %>
 
-<% if !current_user %>
-  <% if @organisations_profile.organisation_id == current_organisation.id %>
-    <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
+  <% if !current_user %>
+    <% if current_organisation.organisations_profile.id == @organisations_profile.organisation_id %>
+      <%= link_to "View Enquiries", enquiries_path %>
+    <% end %>
   <% end %>
-<% end %>
-<%= link_to 'Back', organisations_profiles_path %>
-
-<% if !current_user %>
-  <% if current_organisation.organisations_profile.id == @organisations_profile.organisation_id %>
-    <%= link_to "View Enquiries", enquiries_path %>
-  <% end %>
-<% end %>
+</div>

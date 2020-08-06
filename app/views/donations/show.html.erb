@@ -1,0 +1,31 @@
+
+<p>
+  <strong>Amount:</strong>
+  $<%= @donation.amount %>
+</p>
+
+
+
+<button data-stripe="payment" class="payment-btn">
+  Continue to payment <%#= number_to_currency(@donation.amount) %>
+</button>
+
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

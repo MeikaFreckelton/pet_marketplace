@@ -27,3 +27,47 @@
     }
 
 }
+
+.profile-heading{
+    // background-color: #ededed;
+    height: 8em;
+    h1{
+        padding-top: 3%;
+    }
+}
+.centered-heading{
+    text-align: center;
+
+}
+
+.profile-img{
+    margin: 0 !important;
+    
+    img{
+        width: 100%;
+        height: 18em;
+        object-fit: cover;
+        object-position: 50% 30%;
+    }
+}
+
+.contact-details{
+    background-color: #dbffe6;
+    padding: 3%;
+}
+
+
+.org-profile{
+
+    .org-p-top-section{
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+    .bio{
+        // background-color: #ededed;
+        padding: 3%;
+        width: 100%;
+    }
+}

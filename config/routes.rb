@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :donations
   resources :enquiries
   resources :locations
   devise_for :admins, path: 'admins', controllers: {sessions: 'users/sessions'}
@@ -19,14 +20,18 @@ Rails.application.routes.draw do
   get "/login/organisations", to: "login#organisation", as: "organisation_login"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # donate page 
-  get "/donate/", to: "donate#index", as: "donate"
+  
   
   # resources page
   get "/links/", to: "links#index", as: "links"
 
 
-  # get "/listings/:id/enquiries", to: "enquiries#new", as: "new_enquiry"
+  get "/payments/success", to: "payments#success"
+
+  # webhooks :
+  post "/payments/webhook", to: "payments#webhook"
+
+  
 
 end
 

@@ -2,7 +2,7 @@
 
 <h1>Organisations Profiles</h1>
 <% if !current_user %>
-  <% if current_organisation & (current_organisation.organisations_profile == nil )%>
+  <% if current_organisation && (current_organisation.organisations_profile == nil )%>
     <%= link_to "Add Your organisation's profile", new_organisations_profile_path  %>
   <% end %>
 <% end %>

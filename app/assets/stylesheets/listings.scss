@@ -33,9 +33,12 @@
   }
   
 //   /* Style the images inside the grid */
-  .column img {
+  .row .column img {
     opacity: 0.8; 
-    cursor: pointer; 
+    cursor: pointer;
+    object-fit: cover;
+    width: 6em !important;
+    height: 6em; 
   }
   
   .column img:hover {

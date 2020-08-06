@@ -3,7 +3,7 @@
     <div class="donate-centered">
         <h1>Make a Donation</h1>
         <%# make button %>
-        <%= link_to "Read about out organisations here", organisations_profiles_path %>
+        <%= link_to "Read about our organisations here", organisations_profiles_path %>
 
 
         <%# add image, add organisation, add location, add donate button %>
@@ -28,26 +28,24 @@
 
 
     <div class="donate-location">
-    <h3>donate to a shelter near you</h3>
-    <h4>Enter a postcode/suburb name below</h4>
-    
-    
+        <h3>donate to a shelter near you</h3>
+        <h4>Enter a postcode/suburb name below</h4>
     </div>
     
-    </div>
+    
 
     <div class="donate-list">
         <h3>Or choose from the list below</h3>
         <p>insert list of profiles with donate links</p>
         <% @organisations_profiles.map do |profile| %>
             <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"><%= profile.organisation_name%></h5>
-                <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
-                <p class="card-text"></p>
-                <%= link_to "read more", "/", class:"card-link"%>
-                <%= link_to "donate", "/", class:"card-link"%>
-            </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= profile.organisation_name%></h5>
+                    <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
+                    <p class="card-text"></p>
+                    <%= link_to "read more", "/", class:"card-link"%>
+                    <%= link_to "donate", new_donation_path(organisations_profile_id: profile.id), class:"card-link"%>
+                </div>
             </div>
         <% end %>
     </div>
