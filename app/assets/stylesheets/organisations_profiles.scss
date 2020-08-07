@@ -1,26 +1,29 @@
-// Place all the styles related to the OrganisationsProfiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+// index  -----------------------------------------------
 .card-rows{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     .card{
         margin: 5%;
+        text-align: center;
+
+        a{
+            color: #050505;
+
+        }
+
+
 
         .profile-links{
             background-color: #dbffe6;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            .profile-edit-link{
-                background-color: white;
-               
-                
-            }
+            
 
 
+        }
+
+        #p-edit-link{
+            padding: 0.5rem;
         }
         
         
@@ -28,8 +31,14 @@
 
 }
 
+
+
+
+// SHOW : -----------------------------------------------
+
+
+// show page heading :
 .profile-heading{
-    // background-color: #ededed;
     height: 8em;
     h1{
         padding-top: 3%;
@@ -40,6 +49,8 @@
 
 }
 
+
+//  show page image :
 .profile-img{
     margin: 0 !important;
     
@@ -51,9 +62,20 @@
     }
 }
 
+// show page section :
+
 .contact-details{
-    background-color: #dbffe6;
-    padding: 3%;
+    width: 63%;
+    
+    .contact-heading{
+        padding: 4% 0 0.8% 0;
+    }
+
+    .contact-section{
+        background-color: #dbffe6; 
+        padding: 3%;
+        height: 13.5em;
+    }
 }
 
 
@@ -64,10 +86,44 @@
         flex-direction: row;
     }
 
+    .org-p-left{
+        width: 70%;
+
+    }
+
     
     .bio{
-        // background-color: #ededed;
+        background-color: #f7f7f7;
         padding: 3%;
-        width: 100%;
+        margin: 1.8% 2% 0 0;
+        height: 13.5em;
+        // width: 100%;
+
     }
 }
+
+// #233027
+
+// profile buttons
+.btn-profile{
+    background-color: rgba(219, 255, 230, 0.5);
+    border-radius: 3px;
+    border: 1px solid rgba(35, 48, 39, 0.3);
+    padding: 1.5% 4%;
+    margin-top: 2%;
+    // box-shadow: -4px 4px 0 0 #dbffe6;
+    margin-right: 2%;
+
+
+    a{
+
+        color: black;
+
+        &:hover{
+            text-decoration: none;
+            color: #49574c;
+        }
+    }
+}
+
+

@@ -16,48 +16,58 @@
 <div class="org-profile">
   <div class="org-p-top-section">
 
-    <div class="bio">
+    <div class="org-p-left">
+      <div class="profile-btns">
+        <% if !current_user %>
+          <% if @organisations_profile.organisation_id == current_organisation.id %>
+            <button type="button" class="btn-profile"><%= link_to 'Edit profile', edit_organisations_profile_path(@organisations_profile) %></button>
+          <% end %>
+        <% end %>
+        <button type="button" class="btn-profile"><%= link_to 'Back', organisations_profiles_path %></button>
+
+        <% if !current_user %>
+          <% if current_organisation.organisations_profile.id == @organisations_profile.organisation_id %>
+            <button type="button" class="btn-profile"><%= link_to "View Enquiries", enquiries_path %></button>
+          <% end %>
+        <% elsif current_user %>
+          <button type="button" class="btn-profile"><%= link_to "Donate", new_donations_path(organisations_profile_id: @organisations_profile.id) %></button>
+        <% end %>
+      </div>
+      <div class="bio">
         <h4>About us...</h4>
-        <%= @organisations_profile.bio %>
+        <%= @organisations_profile.id %>
     </div>
-
+  </div>
+    
     <div class="contact-details">
-      <h4>Contact details:</h4>
-      <p>
-        <strong>Contact name:</strong>
-        <%= @organisations_profile.contact_name %>
-      </p>
+      <div class="contact-heading">
+        <h3>Contact details:</h3>
+      </div>
+      <div class="contact-section">
+        <p>
+          <strong>Contact name:</strong>
+          <%= @organisations_profile.contact_name %>
+        </p>
 
-      <p>
-        <strong>Phone number:</strong>
-        <%= @organisations_profile.phone_number %>
-      </p>
+        <p>
+          <strong>Phone number:</strong>
+          <%= @organisations_profile.phone_number %>
+        </p>
 
-      <p>
-          <strong>Email:</strong>
-          <%= @organisations_profile.organisation.email %>
-      </p>
+        <p>
+            <strong>Email:</strong>
+            <%= @organisations_profile.organisation.email %>
+        </p>
 
-      <p>
-        <strong>Address:</strong>
-        <%= @organisations_profile.address_1 %>
-      </p>
+        <p>
+          <strong>Address:</strong>
+          <%= @organisations_profile.address_1 %>
+        </p>
+      </div>
 
       
     </div>
   </div>
 
-
-  <% if !current_user %>
-    <% if @organisations_profile.organisation_id == current_organisation.id %>
-      <%= link_to 'Edit', edit_organisations_profile_path(@organisations_profile) %> |
-    <% end %>
-  <% end %>
-  <%= link_to 'Back', organisations_profiles_path %>
-
-  <% if !current_user %>
-    <% if current_organisation.organisations_profile.id == @organisations_profile.organisation_id %>
-      <%= link_to "View Enquiries", enquiries_path %>
-    <% end %>
-  <% end %>
+  
 </div>

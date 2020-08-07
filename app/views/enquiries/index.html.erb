@@ -1,31 +1,9 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Enquiries</h1>
 
-<table>
-  
 
-  <tbody>
 
-    
-    <% @enquiries.each do |enquiry| %>
-      <% if enquiry.organisations_profile_id == current_organisation.organisations_profile_id %>
-      <tr>
-        <td><%#= enquiry.users_profile_id %></td>
-        <td><%= enquiry.listing.name %></td>
-        <td><%= enquiry.message %></td>
-        <td><%= enquiry.name %></td>
-        <td><%= enquiry.email %></td>
-        <td><%= link_to 'Show', enquiry %></td>
-        <td><%= link_to 'Edit', edit_enquiry_path(enquiry) %></td>
-        <td><%= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
 <% @enquiries.each do |enquiry| %>
 
   <% if enquiry.organisations_profile_id == current_organisation.organisations_profile_id %>
@@ -40,4 +18,5 @@
     <%= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
-<%= link_to 'New Enquiry', new_enquiry_path %>
+
+<%#= link_to 'New Enquiry', new_enquiry_path %>
