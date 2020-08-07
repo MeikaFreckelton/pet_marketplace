@@ -27,7 +27,8 @@ class EnquiriesController < ApplicationController
       if current_user.users_profile == nil
         redirect_to new_users_profile_path
       else
-      @enquiry = Enquiry.new
+        @enquiry = Enquiry.new
+        
       end
       
     else
@@ -44,9 +45,10 @@ class EnquiriesController < ApplicationController
   # POST /enquiries.json
   def create
     @enquiry = Enquiry.new(enquiry_params)
-    @enquiry.listing_id = (Listing.find_by(params[:listing_id])).id
+    # @listing_id = params[:listing_id]
+    
     @enquiry.users_profile_id = (UsersProfile.find_by(user_id: current_user.id)).id
-    @enquiry.organisations_profile_id = (OrganisationsProfile.find_by(params[:organisations_profile_id])).id
+    # @enquiry.organisations_profile_id = (OrganisationsProfile.find_by(params[:organisations_profile_id])).id
     @enquiry.name = @enquiry.users_profile.first_name
     @enquiry.email = @enquiry.users_profile.user.email
     @enquiry.save
@@ -94,6 +96,6 @@ class EnquiriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def enquiry_params
-      params.require(:enquiry).permit(:users_profile_id, :listing_id, :message)
+      params.require(:enquiry).permit(:users_profile_id, :listing_id, :message, :organisations_profile_id)
     end
 end

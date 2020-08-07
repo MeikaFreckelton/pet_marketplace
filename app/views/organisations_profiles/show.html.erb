@@ -1,5 +1,5 @@
 <%# heading : %>
-<div class="profile-heading">
+<div class="heading">
   <h1 class="centered-heading"><%= @organisations_profile.organisation_name %></h1>
 </div>
 
@@ -30,7 +30,7 @@
             <button type="button" class="btn-profile"><%= link_to "View Enquiries", enquiries_path %></button>
           <% end %>
         <% elsif current_user %>
-          <button type="button" class="btn-profile"><%= link_to "Donate", new_donations_path(organisations_profile_id: @organisations_profile.id) %></button>
+          <button type="button" class="btn-profile"><%= link_to "Donate", new_donation_path(organisations_profile_id: @organisations_profile.id) %></button>
         <% end %>
       </div>
       <div class="bio">

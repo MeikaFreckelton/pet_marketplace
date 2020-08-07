@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :replies
   resources :donations
   resources :enquiries
   resources :locations

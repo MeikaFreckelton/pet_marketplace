@@ -104,7 +104,7 @@
 <%# turn into link to contact page %>
 <% if current_user %>
   
-  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(organisations_profile_id: @listing.organisations_profile_id, listing_id: @listing.id) %></button>
+  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id) %></button>
 <% end %>
 
 <% if !current_user %>
@@ -116,7 +116,8 @@
 <div class="listing-details-wrapper">
   <div class="listing-about-sections listing-description">
     <h3>About <%= @listing.name %>...</h3>
-    <%= @listing.description %>
+    org : <%= @listing.organisations_profile_id %>
+    listing : <%= @listing.id%>
   </div>
   <div class="listing-details">
     <div class="listing-about-sections">

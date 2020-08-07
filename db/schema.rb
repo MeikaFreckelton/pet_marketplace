@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_015315) do
+ActiveRecord::Schema.define(version: 2020_08_07_043340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,18 @@ ActiveRecord::Schema.define(version: 2020_08_05_015315) do
     t.index ["organisation_id"], name: "index_organisations_profiles_on_organisation_id"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.bigint "users_profile_id", null: false
+    t.bigint "organisations_profile_id", null: false
+    t.text "message"
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_replies_on_listing_id"
+    t.index ["organisations_profile_id"], name: "index_replies_on_organisations_profile_id"
+    t.index ["users_profile_id"], name: "index_replies_on_users_profile_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -165,6 +177,9 @@ ActiveRecord::Schema.define(version: 2020_08_05_015315) do
   add_foreign_key "listings", "users_profiles"
   add_foreign_key "organisations", "organisations_profiles"
   add_foreign_key "organisations_profiles", "organisations"
+  add_foreign_key "replies", "listings"
+  add_foreign_key "replies", "organisations_profiles"
+  add_foreign_key "replies", "users_profiles"
   add_foreign_key "users", "users_profiles"
   add_foreign_key "users_profiles", "users"
 end

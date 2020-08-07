@@ -12,8 +12,59 @@
  *
  *= require_tree .
  *= require_self
- */
- @import "bootstrap";
+*/
+@import "bootstrap";
+
+// user profiles
+// .location-search{
+
+// }
+
+
+
+
+
+.centered-button{
+   display: flex;
+   justify-content: center;
+}
+
+.large-btn{
+   background-color: rgba(219, 255, 230, 0.5);
+   border-radius: 3px;
+   border: 1px solid rgba(35, 48, 39, 0.3);
+   padding: 1% 4%;
+   width: 82%;
+   margin: 0 auto;
+
+   &:hover{
+      background-color: rgba(35, 48, 39, 0.3);
+   }
+
+   a{
+      color: black;
+      &:hover{
+         text-decoration: none;
+      }
+
+   }
+}
+
+.heading{
+   height: 8em;
+   h1{
+       padding-top: 3%;
+   }
+}
+.centered-heading{
+   text-align: center;
+
+}
+
+
+
+
+
 
  #navbar{
    background-color: #dbffe6;
@@ -131,4 +182,13 @@
       margin: 0;
 
    }
+}
+
+
+// DEVISE : -------------------------------------------
+.sign-up-section{
+   background-color: #ededed;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }

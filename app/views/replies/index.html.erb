@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="heading">
+  <h1 class="centered-heading">Replies</h1>
+</div>
+
+
+
+<br>
+
+<% @replies.each do |reply| %>
+
+  <% if reply.users_profile_id == current_user.users_profile.id %>
+    <div class="replies">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= reply.listing.name %> </h5>
+          <h6 class="card-subtitle mb-2 text-muted">From: <%= reply.organisations_profile.organisation_name %></h6>
+          <h6 class="card-subtitle mb-2 text-muted">On: <%= reply.created_at.to_date %></h6>
+          <p class="card-text"><%= reply.message %></p>
+          <a href="#" class="card-link"><%= link_to 'Show', reply %></a>
+          <a href="#" class="card-link"><%= link_to "Destroy", reply, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        </div>
+      </div>
+    </div>
+  <% end%>
+        
+<% end %>
+
+
+

@@ -13,7 +13,9 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @listing_id = Listing.find(params[:id])
+    # @listing_id = session[:listing_id]
+    # @org_profile = session[:organisations_profile_id]
+
     # @users_profile_id = current_user.users_profile.id
   end
 

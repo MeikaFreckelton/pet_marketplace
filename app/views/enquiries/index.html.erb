@@ -1,21 +1,25 @@
-
-
-<h1>Enquiries</h1>
-
-
+<div class="heading">
+  <h1 class="centered-heading">Your Enquiries</h1>
+</div>
 
 <% @enquiries.each do |enquiry| %>
 
-  <% if enquiry.organisations_profile_id == current_organisation.organisations_profile_id %>
-    <%= enquiry.listing.name %> 
-    <%= enquiry.listing_id%>
-    <%= enquiry.id %>
-    <%= enquiry.message %>
-    <%= enquiry.name %>
-    <%= enquiry.email %>
-    <%= link_to 'Show', enquiry %>
-    <%= link_to 'Edit', edit_enquiry_path(enquiry) %>
-    <%= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% if enquiry.organisations_profile_id == current_organisation.organisations_profile.id %>
+  
+  <div class="enquiries">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= enquiry.listing.name %> </h5>
+        <h6 class="card-subtitle mb-2 text-muted">From: <%= enquiry.name %></h6>
+        <h6 class="card-subtitle mb-2 text-muted">On: <%= enquiry.created_at.to_date %></h6>
+        <p class="card-text"><%= enquiry.message %></p>
+        <a href="#" class="card-link"><%= link_to 'Show', enquiry %></a>
+        <a href="#" class="card-link"><%= link_to "Reply", new_reply_path(:users_profile_id => enquiry.users_profile_id, :organisations_profile_id => enquiry.organisations_profile_id, :listing_id => enquiry.listing_id)%></a>
+        <a href="#" class="card-link"><%= link_to "Destroy", enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      </div>
+    </div>
+    
+    </div>
   <% end %>
 <% end %>
 

@@ -1,10 +1,15 @@
 <%#= if current_user.%>
-<div>
-    <h1>Welcome to Pet Place!</h1>
-    
-    <p>Log in or create a new account below:</p>
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "I am a fosterer or buyer", user_login_path %></button>
-    <button type="button" class="btn btn-primary btn-lg"><%= link_to "I am a shelter or rescue group", organisation_login_path%></button>
+<div class="home-page">
+    <div class="heading">
+        <h1 class="centered-heading">Welcome to Pet Place!</h1>
+    </div>
+    <div class="home-section">
+        <p>Log in or create a new account below:</p>
+        <div class="buttons-h">
+            <button type="button" class="btn-profile"><%= link_to "I am a fosterer or buyer", user_login_path %></button>
+            <button type="button" class="btn-profile second-btn"><%= link_to "I am a shelter or rescue group", organisation_login_path%></button>
+        </div>
+    </div>
 </div>
 
 

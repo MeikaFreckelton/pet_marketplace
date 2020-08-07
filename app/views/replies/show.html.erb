@@ -1,0 +1,13 @@
+<div class="heading">
+  <h1 class="centered-heading">Reply from <%= @reply.organisations_profile.organisation_name%></h1>
+</div>
+<div>
+  <h4>In regards to <%= @reply.listing.name%></h4>
+
+</div>
+<p>
+  <strong>Message:</strong>
+  <%= @reply.message %>
+</p>
+
+<%= link_to 'Back', replies_path %>

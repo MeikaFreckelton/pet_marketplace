@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Users profile:</strong>
-  <%= @enquiry.users_profile_id %>
+  <strong>User:</strong>
+  <%= @enquiry.name %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @enquiry.email %>
 </p>
 
 <p>
   <strong>Listing:</strong>
-  <%= @enquiry.listing_id %>
+  <%= @enquiry.listing_id %> - <%= @enquiry.listing.name%>
 </p>
 
 <p>
@@ -15,8 +20,10 @@
   <%= @enquiry.message %>
 </p>
 
-<%= @enquiry.email %>
-<%= @enquiry.name %>
 
-<%#= link_to 'Edit', edit_enquiry_path(@enquiry) %> |
+
+
+
+
+<%#= link_to 'Edit', edit_enquiry_path(@enquiry) %> 
 <%= link_to 'Back To listings', listings_path %>

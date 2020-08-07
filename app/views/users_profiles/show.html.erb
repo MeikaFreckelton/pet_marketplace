@@ -1,25 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<h1><%= @users_profile.first_name %> <%= @users_profile.last_name %></h1>
-
-<p>
-  <strong>Date of birth:</strong>
-  <%= @users_profile.dob %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @users_profile.phone_number %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @users_profile.address_1 %>
-</p>
+<div class="heading">
+  <h1 class="centered-heading"><%= @users_profile.first_name %> <%= @users_profile.last_name %></h1>
+</div>
 
 
 
+<div class="u-profile">
+  
+
+  <div class="bottom-section">
+    <p>
+      <strong>Date of birth:</strong>
+      <%= @users_profile.dob %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @users_profile.phone_number %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @users_profile.address_1 %>
+    </p>
+
+    <p class="last-item">
+      <strong>Email:</strong>
+      <%= @users_profile.user.email %>
+    </p>
+  
+  </div>
+  <div class="top-buttons">
+
+    <button class="btn-profile"><%= link_to "View replies to your enquiries", replies_path %></button>
+    <button class="btn-profile" id="second-btn"><%= link_to "Edit profile", edit_users_profile_path(@users_profile) %></button>
+  </div>
 
 
-<%= link_to 'Edit', edit_users_profile_path(@users_profile) %> |
-<%= link_to 'Back', users_profiles_path %>
+  
+</div>
+
+
+
+
+
+

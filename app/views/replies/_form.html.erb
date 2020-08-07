@@ -1,14 +1,13 @@
 
-<%= simple_form_for(@enquiry) do |f| %>
+<%= simple_form_for(@reply) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%#= f.association :users_profile %>
-    <%#= f.association :listing %>
-    <%= f.input :message %>
+    <%= f.hidden_field :users_profile_id, :value => params[:users_profile_id] %>
     <%= f.hidden_field :organisations_profile_id, :value => params[:organisations_profile_id] %>
-    <%= f.hidden_field :listing_id, :value => params[:listing_id]%>
+    <%= f.input :message %>
+    <%= f.hidden_field :listing_id, :value => params[:listing_id] %>
   </div>
 
   <div class="form-actions">
