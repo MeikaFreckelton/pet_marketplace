@@ -53,7 +53,7 @@
 .heading{
    height: 8em;
    h1{
-       padding-top: 3%;
+      padding-top: 3%;
    }
 }
 .centered-heading{
@@ -62,17 +62,13 @@
 }
 
 
-
-
-
-
- #navbar{
+#navbar{
    background-color: #dbffe6;
    margin-bottom: 0;
    
 
 
- }
+}
 
 
  .navbar-brand{
@@ -139,8 +135,9 @@
 }
 
 .btn-homepage{
-   background-color: #dbffe6;
-   border-radius: 2px !important;
+   background-color: #9adcfc;
+   border-radius: 3px !important;
+   flex-grow: 0.15;
    
 
    &:hover{
@@ -187,25 +184,59 @@
 
 // DEVISE : -------------------------------------------
 .sign-up-section{
-   background-color: #ededed;
+   background-color: white;
    display: flex;
    flex-direction: column;
    align-items: center;
    padding: 2%;
    width: 30%;
+   box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+
+   a{
+      color: black;
+   }
+   #links{
+      margin-bottom: 3%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+   }
+   
+   #new_organisation{
+      width: 16em;
+   }
 
    .field input{
       width: 100%;
       margin-bottom: 4%;
+      background-color: white;
+      border: 1px solid #878787;
+      border-radius: 3px;
    }
 
    .actions input{
       width: 100%;
-      background-color: #dbffe6;
-      border: 1px solid rgba(0, 0, 0, 0.7);
-      border-radius: 2px;
+      // background-color: #94e3ac;
+      background-color: #9adcfc;
+      // border: 1px solid #878787;
+      border: none;
+      border-radius: 3px;
       margin-top: 5%;
-      margin-bottom: 3%;
+      margin-bottom: 5%;
+      height: 2.25rem;
+   }
+
+   .remember-me{
+      display: flex;
+      flex-direction: row;
+      margin-top: 0.4rem;
+      
+   }
+   #remember-checkbox{
+      width: 9%;
+      margin-bottom: 0.5rem;
+      margin-top: 0.35rem;
+      margin-right: 0.35rem;
    }
 }
 

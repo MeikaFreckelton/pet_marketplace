@@ -103,30 +103,33 @@
 </div>
 <%# turn into link to contact page %>
 <% if current_user %>
+  <%#= button_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class:"btn-profile" id:"enquire-link", :method => "get"%>
   
-  <button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id) %></button>
+  <%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class: "btn-profile", id: "enquire-link" %>
 <% end %>
 
 <% if !current_user %>
   <% if current_organisation.id == @listing.organisations_profile.organisation.id %>
-    <%= link_to 'Edit', edit_listing_path(@listing) %> |
+    <button class="btn-profile"><%= link_to 'Edit', edit_listing_path(@listing) %></button>
   <% end %>
 <% end %>
-<%= link_to 'Back', listings_path %>
+<button class="btn-profile"><%= link_to 'Back', listings_path %></button>
 <div class="listing-details-wrapper">
   <div class="listing-about-sections listing-description">
     <h3>About <%= @listing.name %>...</h3>
-    org : <%= @listing.organisations_profile_id %>
-    listing : <%= @listing.id%>
+    <div class="description-box">
+      <%= @listing.description %>
+    </div>
+    
   </div>
   <div class="listing-details">
     <div class="listing-about-sections">
       <h3>About their health</h3>
-      <%= @listing.health_status %>
+      <div class="status-box"><%= @listing.health_status %></div>
     </div>
-    <div class="listing-about-sections">
+    <div class="listing-about-sections" id="t-m-about">
       <h3>About their vaccinations</h3>
-      <%= @listing.vaccination_details %>
+      <div class="status-box"><%= @listing.vaccination_details %></div>
     </div>
   </div>
 </div>

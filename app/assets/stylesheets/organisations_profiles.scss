@@ -12,23 +12,14 @@
             color: #050505;
 
         }
-
-
-
         .profile-links{
             background-color: #dbffe6;
-            
-
-
         }
 
         #p-edit-link{
             padding: 0.5rem;
-        }
-        
-        
+        }   
     }
-
 }
 
 
@@ -97,13 +88,14 @@
 
 // profile buttons
 .btn-profile{
-    background-color: rgba(219, 255, 230, 0.5);
+    background-color: #9adcfc;
     border-radius: 3px;
-    border: 1px solid rgba(35, 48, 39, 0.3);
-    padding: 1.5% 4%;
+    border: none;
+    padding: 1% 4%;
     margin-top: 2%;
     // box-shadow: -4px 4px 0 0 #dbffe6;
     margin-right: 2%;
+    margin-bottom: 5%;
 
 
     a{

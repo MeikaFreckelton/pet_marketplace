@@ -4,7 +4,7 @@
 
 .home-title{
     text-align: center;
-    background-color: #f2f2f2;
+    // background-color: #f2f2f;
     width: 100%;
     height: 13em;
     
@@ -18,6 +18,9 @@
 }
 
 
+
+
+// carousel :
 .carousel-inner{
     height: 30em; 
 }
@@ -33,9 +36,13 @@
     
 //  }
 
+
+// about : 
+
 .about-page{
     display: flex;
     flex-direction: column;
+    
 }
 .about-text{
     text-align: center;
