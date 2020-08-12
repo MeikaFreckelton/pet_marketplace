@@ -101,19 +101,32 @@
     </div>
   </div>
 </div>
-<%# turn into link to contact page %>
-<% if current_user %>
-  <%#= button_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class:"btn-profile" id:"enquire-link", :method => "get"%>
-  
-  <%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class: "btn-profile", id: "enquire-link" %>
-<% end %>
 
-<% if !current_user %>
-  <% if current_organisation.id == @listing.organisations_profile.organisation.id %>
-    <button class="btn-profile"><%= link_to 'Edit', edit_listing_path(@listing) %></button>
+
+<%# BUTTONS : %>
+<div class="listing-btns">
+  <% if current_user %>
+    <%#= button_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class:"btn-profile" id:"enquire-link", :method => "get"%>
+    <div class="btn-profile-div">
+      <%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class: "btn-profile", id: "enquire-link" %>
+    </div>
   <% end %>
-<% end %>
-<button class="btn-profile"><%= link_to 'Back', listings_path %></button>
+
+  <% if !current_user %>
+    <% if current_organisation.id == @listing.organisations_profile.organisation.id %>
+      <div class="btn-profile-link">
+        <%= link_to 'Edit', edit_listing_path(@listing), class: "btn-profile"%></button>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="btn-profile-div">
+    <%= link_to 'Back', listings_path, class: "btn-profile" %>
+  </div>
+</div>
+
+
+
+
 <div class="listing-details-wrapper">
   <div class="listing-about-sections listing-description">
     <h3>About <%= @listing.name %>...</h3>

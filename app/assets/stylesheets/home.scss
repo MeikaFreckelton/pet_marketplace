@@ -8,11 +8,12 @@
         align-items: center;
 
         .buttons-h{
-            width: 50%;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             .btn-profile{
-                width: 50%;
+                width: 49%;
+                text-align: center;
             }
             .second-btn{
                 margin-right: 0;

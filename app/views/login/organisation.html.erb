@@ -3,11 +3,11 @@
     <h1 class="centered-heading">Already have an Account?</h1>
 </div>
 <div class="login-page">
-    <button type="button" class="btn-profile"><%= link_to "Log in", new_organisation_session_path %></button>
+    <%= link_to "Log in", new_organisation_session_path, class: "btn-profile" %></button>
     <div class="heading">
         <h1 class="centered-heading">Or create a new one:</h1>
     </div>
-    <button type="button" class="btn-profile"><%= link_to "Create a New Account", new_organisation_registration_path %></button>
+    <%= link_to "Create a New Account", new_organisation_registration_path, class: "btn-profile btn-2" %></button>
 </div>
 
 

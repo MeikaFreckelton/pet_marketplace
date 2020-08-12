@@ -23,7 +23,7 @@
 .donate-organisation{
     background-color: #cfcfcf;
     width: 100%;
-    margin: 1.25rem 0 0 0;
+    
     padding: 0.3em 1.25em 0.3em 1.25rem;
     text-align: center;
 }
@@ -37,6 +37,10 @@
 
 #donate-button{
     padding: 0;
+    margin-bottom: 0.3em;
+    .btn-profile{
+        padding: 0.5em 13.3075em;
+    }
     
 }
 

@@ -24,39 +24,35 @@
 }
 
 #enquire-link{
-    padding: 3% 40%;
+    padding: 0.5em 23em;
     color: black;
     
+
+}
+
+// btns: 
+.listing-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 89%;
+    // .btn-profile-link
+
+    // .btn-profile
+
 }
 
 
 
 
 
-// .listing-inputs{
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-evenly;
-//     align-self: auto;
-//     flex-grow: 1;
-//     width: 100%;
-// }
-
-// .form-inputs{
-//     display: flex;
-//     align-items: stretch;
-//     flex-wrap: nowrap;
-// }
 
 
 
 
 
 
-
-
-
-
+// IMAGE GALLERY : -----------------------------------------
 // images:
 /* The grid: Four equal columns that floats next to each other */
 .column {
@@ -91,15 +87,6 @@
     display: none;
   }
   
-//   /* Expanding image text */
-//   #imgtext {
-//     position: absolute;
-//     bottom: 15px;
-//     left: 15px;
-//     color: white;
-//     font-size: 20px;
-//   }
-  
 //   /* Closable button inside the expanded image */
 .closebtn {
     position: absolute;
@@ -109,6 +96,9 @@
     font-size: 35px;
     cursor: pointer;
 }
+
+// section 
+
 
 .image-wrapper{
     width: 50%;

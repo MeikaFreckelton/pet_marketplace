@@ -6,8 +6,8 @@
     <div class="home-section">
         <p>Log in or create a new account below:</p>
         <div class="buttons-h">
-            <button type="button" class="btn-profile"><%= link_to "I am a fosterer or buyer", user_login_path %></button>
-            <button type="button" class="btn-profile second-btn"><%= link_to "I am a shelter or rescue group", organisation_login_path%></button>
+            <%= link_to "I am a fosterer or buyer", user_login_path, class: "btn-profile" %></button>
+            <%= link_to "I am a shelter or rescue group", organisation_login_path, class: "btn-profile"%></button>
         </div>
     </div>
 </div>

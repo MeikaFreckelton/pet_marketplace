@@ -6,6 +6,7 @@ class DonationsController < ApplicationController
   def index
     @donations = Donation.all
     @organisations_profiles = OrganisationsProfile.all
+    @featured = OrganisationsProfile.find(6)
   end
 
   # GET /donations/1

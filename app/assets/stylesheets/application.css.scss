@@ -15,12 +15,27 @@
 */
 @import "bootstrap";
 
-// user profiles
-// .location-search{
 
-// }
+.btn-profile-div{
+   margin: 5% 0;
+}
 
+.btn-profile{
+   background-color: #9adcfc;
+   border-radius: 3px;
 
+   padding: 0.5em 4em;
+
+//    // box-shadow: -4px 4px 0 0 #dbffe6;
+
+   color: black;
+   &:hover{
+      
+      color: black;
+  }
+
+   
+}
 
 
 
