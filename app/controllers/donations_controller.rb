@@ -6,12 +6,14 @@ class DonationsController < ApplicationController
   def index
     @donations = Donation.all
     @organisations_profiles = OrganisationsProfile.all
+    # setting featured organisation :
     @featured = OrganisationsProfile.find(6)
   end
 
   # GET /donations/1
   # GET /donations/1.json
   def show
+    # for stripe payments :
     session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         customer_email: current_user.email,
@@ -47,6 +49,7 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
+    # connecting appropriate users and organisations profiles when creating a donation :
     @donation = Donation.new(donation_params)
     @donation.users_profile_id = current_user.users_profile.id
     @donation.organisations_profile_id = (OrganisationsProfile.find_by(params[:organisations_profile_id])).id

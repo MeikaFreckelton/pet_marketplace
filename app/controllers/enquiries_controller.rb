@@ -6,6 +6,7 @@ class EnquiriesController < ApplicationController
   def index
 
     @enquiries = Enquiry.all
+    # if not an organisation and tries to see enquiries, will be redirected to home page
     if current_user
       redirect_to root_path
     end
@@ -23,6 +24,9 @@ class EnquiriesController < ApplicationController
 
   # GET /enquiries/new
   def new
+    # if a user, and user has no profile when trying to create an enquiry,
+    # redirect to create a profile for that user :
+    # if an org, redirect back to listings : 
     if current_user 
       if current_user.users_profile == nil
         redirect_to new_users_profile_path

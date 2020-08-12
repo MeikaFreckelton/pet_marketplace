@@ -71,6 +71,21 @@
     .org-p-left{
         width: 70%;
 
+        .profile-btns{
+            width: 98%;
+            margin-top: 2%;
+            display: flex;
+            justify-content: space-between;
+
+            .btn-profile{
+                // width: 8em;
+                text-align: center;
+                padding: 0;
+                width: 11em;
+                height: 2.75em;
+            }
+        }
+
     }
 
     

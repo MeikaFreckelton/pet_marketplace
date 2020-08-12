@@ -23,8 +23,12 @@
 .btn-profile{
    background-color: #9adcfc;
    border-radius: 3px;
+   border: none;
 
    padding: 0.5em 4em;
+   a{
+      color: black;
+   }
 
 //    // box-shadow: -4px 4px 0 0 #dbffe6;
 
@@ -69,6 +73,7 @@
    height: 8em;
    h1{
       padding-top: 3%;
+      color: black;
    }
 }
 .centered-heading{
@@ -185,7 +190,7 @@
    width: 100%;
    height: 3em;
    background-color: #dbffe6;
-   margin-top: 5%;
+   margin-top: 45%;
    // position: absolute;
    // bottom: 0;
    p{

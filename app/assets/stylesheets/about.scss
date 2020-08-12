@@ -4,7 +4,7 @@
     // background-color: #f2f2f;
     width: 100%;
     height: 13em;
-    
+    color: black;
     z-index: -1;
     h1{
         padding-top: 3%;
@@ -43,9 +43,10 @@
 }
 .about-text{
     text-align: center;
-
+    color: black;
     h2{
-        font-size: 3em
+        font-size: 3em;
+        color: black;
     }
 
     p{

@@ -36,7 +36,9 @@ class OrganisationsProfilesController < ApplicationController
 
     @organisations_profile = OrganisationsProfile.new(organisations_profile_params)
     @organisations_profile.organisation_id = current_organisation.id #find(params[:id])
+    
     @organisations_profile.save
+    current_organisation.organisations_profile_id = @organisations_profile.id
     # @organisations_profile = current_organisation.OrganisationsProfile.create(organisation_profile_params)
     # 
 
@@ -83,7 +85,7 @@ class OrganisationsProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def organisations_profile_params
-      params.require(:organisations_profile).permit(:organisation_name, :contact_name, :phone_number, :address_1, :address_2, :suburb, :state, :postcode, :bio, :rating, :organisation_id, pictures: [])
+      params.require(:organisations_profile).permit(:organisation_name, :contact_name, :phone_number, :address_1,:bio, :organisation_id, pictures: [])
     end
 
     # def set_organisations_profile

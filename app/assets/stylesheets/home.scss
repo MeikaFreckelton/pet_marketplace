@@ -1,4 +1,8 @@
 .home-page{
+
+    .centered-heading{
+        font-size: 4em;
+    }
     
     // justify-content: center;
     .home-section{
@@ -6,11 +10,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
+        p{
+            font-size: 1.5em;
+            margin-top: 2em;
+        }
         .buttons-h{
             width: 100%;
             display: flex;
             justify-content: space-between;
+            margin-bottom: 9em;
+            margin-top: 3em;
             .btn-profile{
                 width: 49%;
                 text-align: center;
