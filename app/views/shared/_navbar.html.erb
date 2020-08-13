@@ -1,52 +1,87 @@
+
+<% if ((controller_name == "home" && action_name == "page") or (controller_name == "login" && (action_name == "user" || "organisation")) or (request.path_parameters == {:controller=>"users/sessions", :action=>"new"}) or (request.path_parameters == {:controller=>"devise/registrations",:action=>"new"}) or (request.path_parameters == {:controller=>"organisations/sessions", :action=>"new"}))%>
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar" >
+        <a class="navbar-brand" href="/">Pet Place</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+        
+            </div>
+        </div>
+
+        <div class="navbar-nav">
+            <%= link_to "Listings", listings_path, class:"nav-item nav-link disabled", id:"nav-links"%> 
+            <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link disabled", id:"nav-links" %>
+            <%= link_to "Resources", links_path, class:"nav-item nav-link disabled", id:"nav-links" %>
+        </div>
+            
+            
+            
+
+    </nav>
+
+<% else %>
+
+
 <nav class="navbar navbar-expand-lg navbar-light" id="navbar" >
-  <a class="navbar-brand" href="/">Pet Place</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      
-       
-    </div>
+    <a class="navbar-brand" href="/">Pet Place</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+    
+        </div>
     </div>
 
-    <div class="navbar-nav">
-        <%= link_to "Listings", listings_path, class:"nav-item nav-link", id:"nav-links"%> 
-        <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link", id:"nav-links" %>
-        <%= link_to "Resources", links_path, class:"nav-item nav-link", id:"nav-links" %>
-    </div>
-    <div class="navbar-nav">
-        <% if !current_organisation %>
-            <button type="button" class="btn btn-custom"><%= link_to "Donate", donations_path %></button>
-        <% end %>
-    </div>
-    <div class="navbar-nav">
-        
-        <% if current_user %>
-            <% if current_user.users_profile == nil %>
-                <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_users_profile_path %></button>
-            <% elsif current_user.users_profile != nil %>
-                <button type="button" class="btn btn-custom"><%= link_to "Your account", current_user.users_profile %></button>
+        <div class="navbar-nav">
+            <%= link_to "Listings", listings_path, class:"nav-item nav-link", id:"nav-links"%> 
+            <%= link_to "Organisations", organisations_profiles_path, class:"nav-item nav-link", id:"nav-links" %>
+            <%= link_to "Resources", links_path, class:"nav-item nav-link", id:"nav-links" %>
+        </div>
+        <div class="navbar-nav">
+            <% if !current_organisation %>
+                <button type="button" class="btn btn-custom"><%= link_to "Donate", donations_path %></button>
             <% end %>
-        <% elsif current_organisation %>
-            <% if current_organisation.organisations_profile == nil %>
-                <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_organisations_profile_path %></button>
-            <% elsif current_organisation.organisations_profile != nil %>
-                <button type="button" class="btn btn-custom"><%= link_to "Your account", current_organisation.organisations_profile %></button>
+        </div>
+        <div class="navbar-nav">
+            
+            <% if current_user %>
+                <% if current_user.users_profile == nil %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_users_profile_path %></button>
+                <% elsif current_user.users_profile != nil %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Your account", current_user.users_profile %></button>
+                <% end %>
+            <% elsif current_organisation %>
+                <% if current_organisation.organisations_profile == nil %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Create profile", new_organisations_profile_path %></button>
+                <% elsif current_organisation.organisations_profile != nil %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Your account", current_organisation.organisations_profile %></button>
+                <% end %>
+
+
             <% end %>
+            
+        </div>
 
-
-        <% end %>
+        <%#  removing "login" from front page and log in/sign up pages%>
+        <%# if ((controller_name == "home" && action_name == "page") or (controller_name == "login" && (action_name == "user" || "organisation")) or (request.path_parameters == {:controller=>"users/sessions", :action=>"new"}) or (request.path_parameters == {:controller=>"devise/registrations",:action=>"new"}) or (request.path_parameters == {:controller=>"organisations/sessions", :action=>"new"}))%>
+            
         
-    </div>
-    <div class="navbar-nav">
-        <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
-            <button type="button" class="btn btn-custom"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
-        <% else %>
-            <button type="button" class="btn btn-custom"><%= link_to "Login", "/" %></button>
-        <% end %>
-    </div>
+        
+
+            <div class="navbar-nav">
+                <% if user_signed_in? || organisation_signed_in? || admin_signed_in? %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Logout", destroy_user_session_path || destroy_organisation_session_path || destroy_admin_session_path, method:"delete"%></button></a>
+                <% else %>
+                    <button type="button" class="btn btn-custom"><%= link_to "Login", "/" %></button>
+                <% end %>
+            </div>
+        
 
 </nav>
 
 
+<% end %>

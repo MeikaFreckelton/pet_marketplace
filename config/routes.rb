@@ -6,10 +6,23 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: {sessions: 'users/sessions'}
   resources :listings
   resources :organisations_profiles
-  devise_for :organisations, path: 'organisations', controllers: {sessions: 'users/sessions'}
+
+  # devise_for :organisations, path: 'organisations', controllers: {sessions: 'users/sessions'}
   resources :users_profiles
-  devise_for :users, path: 'users', controllers: { sessions: 'users/sessions'}
+  # devise_for :users, path: 'users', controllers: { sessions: 'users/sessions'}
   
+
+  # attempting to access devise params/route
+  devise_for :users, controllers: {
+    sessions: "users/sessions"
+  }
+
+  devise_for :organisations, controllers: {
+    sessions: "organisations/sessions"
+  }
+
+
+
   # home page
   root 'home#page'
   # home page when logged in

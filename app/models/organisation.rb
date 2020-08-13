@@ -4,4 +4,5 @@ class Organisation < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :organisations_profile
+  # validates :organisations_profile_id, presence: true
 end

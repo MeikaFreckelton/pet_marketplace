@@ -17,6 +17,10 @@ class OrganisationsProfilesController < ApplicationController
     # @organisation_id = 
     if current_user
       redirect_to organisations_profiles_path
+    else
+      if current_organisation.organisations_profile.id != nil
+        redirect_to organisations_profiles_path
+      end
     end
   
     @organisations_profile = OrganisationsProfile.new
@@ -36,9 +40,9 @@ class OrganisationsProfilesController < ApplicationController
 
     @organisations_profile = OrganisationsProfile.new(organisations_profile_params)
     @organisations_profile.organisation_id = current_organisation.id #find(params[:id])
-    
-    @organisations_profile.save
     current_organisation.organisations_profile_id = @organisations_profile.id
+    @organisations_profile.save
+    
     # @organisations_profile = current_organisation.OrganisationsProfile.create(organisation_profile_params)
     # 
 

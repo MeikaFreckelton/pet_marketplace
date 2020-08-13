@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
     if current_user
       redirect_to listings_path
     else
-      if current_organisation.organisations_profile_id == nil
+      if current_organisation.organisations_profile.id == nil
         redirect_to new_organisations_profile_path
       else
         @listing = Listing.new
