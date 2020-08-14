@@ -1,7 +1,9 @@
 
 <div class="donate-wrapper">
     <div class="donate-centered">
-        <h1>Make a Donation</h1>
+        <div class="heading donate-heading">
+            <h1 class="centered-heading">Make a Donation</h1>
+        </div>
         <%# make button %>
         <%= link_to "Read about our organisations here", organisations_profiles_path %>
 
@@ -28,15 +30,17 @@
 
 
 
-    <div class="donate-location">
+    <%# <div class="donate-location">
         <h3>donate to a shelter near you</h3>
         <h4>Enter a postcode/suburb name below</h4>
-    </div>
+    </div> %>
     
     
 
     <div class="donate-list">
-        <h3>Or choose from the list below</h3>
+        <div class="org-heading">
+            <h3 class="centered-heading">Choose an organisation from the list below</h3>
+        </div>
         <% @organisations_profiles.map do |profile| %>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">

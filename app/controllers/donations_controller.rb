@@ -7,7 +7,7 @@ class DonationsController < ApplicationController
     @donations = Donation.all
     @organisations_profiles = OrganisationsProfile.all
     # setting featured organisation :
-    @featured = OrganisationsProfile.find(6)
+    @featured = OrganisationsProfile.find(1)
   end
 
   # GET /donations/1

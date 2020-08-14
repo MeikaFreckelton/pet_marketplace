@@ -9,10 +9,12 @@
     <%= f.input :dob, as: :date, start_year: Date.today.year - 100, 
     end_year: Date.today.year - 16, order: [:day, :month, :year]  %>
     <%= f.input :phone_number %>
-    <%= f.search_field :address_1, data: { target: "places.field"}, class: "location-search form-control" %>
+    <%= f.label :location %>
+    <%= f.search_field :address_1, data: { target: "places.field"}, class: "location-search form-control"%>
   </div>
-  <div class="p-4 google-maps">
-    <div data-target="places.map" style="height:400px; width:400px"></div>
+  <%# map : %>
+  <div class="google-maps">
+    <div data-target="places.map" style="height:200px; width:300px"></div>
   </div>
 
   <div class="form-actions">

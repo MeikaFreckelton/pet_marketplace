@@ -32,7 +32,9 @@
   </div>
   <div class="top-buttons">
 
-    <button class="btn-profile"><%= link_to "View replies to your enquiries", replies_path %></button>
+    <% if current_user.users_profile.replies.count > 0%>
+      <button class="btn-profile"><%= link_to "View replies to your enquiries", replies_path %></button>
+    <% end %>
     <button class="btn-profile" id="second-btn"><%= link_to "Edit profile", edit_users_profile_path(@users_profile) %></button>
   </div>
 
