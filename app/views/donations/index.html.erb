@@ -38,15 +38,17 @@
         <div class="org-heading">
             <h3 class="centered-heading">Choose an organisation from the list below</h3>
         </div>
-        <div class="card-rows-d">
+        <div class="card-rows-d enquiries-cards">
             <% @organisations_profiles.map do |profile| %>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= profile.organisation_name%></h5>
-                        <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
-                        <p class="card-text"></p>
-                        <%= link_to "read more", profile, class:"card-link"%>
-                        <%= link_to "donate", new_donation_path(organisations_profile_id: profile.id), class:"card-link"%>
+                <div class="enquiries">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= profile.organisation_name%></h5>
+                            <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
+                            <p class="card-text"></p>
+                            <%= link_to "read more", profile, class:"card-link enq-links"%>
+                            <%= link_to "donate", new_donation_path(organisations_profile_id: profile.id), class:"card-link enq-links"%>
+                        </div>
                     </div>
                 </div>
             <% end %>
