@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div class="heading">
+  <h1 class="centered-heading">Enquiry from: <%= @enquiry.name %></h1>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @enquiry.name %>
-</p>
+<div class="enquiry-show">
+  <div class="enq-info-h">
+    <h3>Reguarding listing: <%= link_to "#{@enquiry.listing.name}", @enquiry.listing %></h3>
+    <div class="enq-info">
+      <p>
+        <strong>Email:</strong>
+        <%= @enquiry.email %>
+      </p>
 
-<p>
-  <strong>Contact email:</strong>
-  <%= @enquiry.email %>
-</p>
-
-<p>
-  <strong>Listing:</strong>
-  <%= @enquiry.listing_id %> - <%= @enquiry.listing.name%>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @enquiry.message %>
-</p>
-
-
+      <p>
+        <strong>Message:</strong>
+        <%= @enquiry.message %>
+      </p>
+    </div>
+    <div class="enq-links">
+      <%= link_to "Reply to #{@enquiry.name}", new_reply_path(:users_profile_id => @enquiry.users_profile_id, :organisations_profile_id => @enquiry.organisations_profile_id, :listing_id => @enquiry.listing_id), class: "btn-profile"%>
+      <%= link_to 'Back To Enquiries', enquiries_path, class: "btn-profile" %>
+  </div>
+  </div>
 
 
-
-
-<%#= link_to 'Edit', edit_enquiry_path(@enquiry) %> 
-<%= link_to 'Back To listings', listings_path %>
+  
+</div>

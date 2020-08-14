@@ -1,13 +1,22 @@
 <div class="heading">
   <h1 class="centered-heading">Reply from <%= @reply.organisations_profile.organisation_name%></h1>
 </div>
-<div>
-  <h4>In regards to <%= @reply.listing.name%></h4>
 
+<%# utilising styling from enquiries pages: %>
+<div class="enquiry-show">
+  <div class="enq-info-h">
+    <h3>Regarding listing: <%= @reply.listing.name%></h3>
+    <div class="enq-info">
+      <p>
+        <%# <strong>Message:</strong> %>
+        <%= @reply.message %>
+      </p>
+    </div>
+    <div class="enq-links">
+      <%= link_to 'Back to replies', replies_path, class: "btn-profile" %>
+    </div>
+  </div>
 </div>
-<p>
-  <strong>Message:</strong>
-  <%= @reply.message %>
-</p>
 
-<%= link_to 'Back', replies_path %>
+
+

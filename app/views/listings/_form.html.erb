@@ -9,7 +9,11 @@
     <%= f.input :age %>
     </div>
     <div class="listing-inputs">
-    <%= f.search_field :location, data: { target: "places.field" }  %>
+    <%= f.label :location %>
+    <%= f.search_field :location, data: { target: "places.field" }, class: "location-search form-control form-m-b"  %>
+      <div class="form-m-b">
+        <div data-target="places.map" style="height:200px; width:300px"></div>
+      </div>
     <%= f.input :price %>
     </div>
     <div class="listing-inputs">
@@ -41,9 +45,7 @@
     
     <%= f.file_field :pictures, multiple: true, :accept => 'image/jpeg, image/png'%>
   
-    <div class="p-4">
-  <div data-target="places.map" style="height:400px; width:400px"></div>
-  </div>
+  
   
   </div>
 

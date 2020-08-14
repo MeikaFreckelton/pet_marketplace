@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   resources :listings
   resources :organisations_profiles
 
-  # devise_for :organisations, path: 'organisations', controllers: {sessions: 'users/sessions'}
+  
   resources :users_profiles
-  # devise_for :users, path: 'users', controllers: { sessions: 'users/sessions'}
+  
   
 
-  # attempting to access devise params/route
+  # attempting to access devise params/route :
   devise_for :users, controllers: {
     sessions: "users/sessions"
   }
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   }
 
 
+  # successful reply :
+  get "/success/reply", to: "success#index", as: "successful_reply"
 
   # home page
   root 'home#page'
@@ -39,7 +41,7 @@ Rails.application.routes.draw do
   # resources page
   get "/links/", to: "links#index", as: "links"
 
-
+  # successful payments:
   get "/payments/success", to: "payments#success"
 
   # webhooks :

@@ -5,7 +5,7 @@
             <h1 class="centered-heading">Make a Donation</h1>
         </div>
         <%# make button %>
-        <%= link_to "Read about our organisations here", organisations_profiles_path %>
+        <%= link_to "Read about our organisations here", organisations_profiles_path, class: "read-more-link"%>
 
 
         <%# add image, add organisation, add location, add donate button %>
@@ -27,9 +27,6 @@
     </div>
 
 
-
-
-
     <%# <div class="donate-location">
         <h3>donate to a shelter near you</h3>
         <h4>Enter a postcode/suburb name below</h4>
@@ -41,16 +38,18 @@
         <div class="org-heading">
             <h3 class="centered-heading">Choose an organisation from the list below</h3>
         </div>
-        <% @organisations_profiles.map do |profile| %>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><%= profile.organisation_name%></h5>
-                    <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
-                    <p class="card-text"></p>
-                    <%= link_to "read more", profile, class:"card-link"%>
-                    <%= link_to "donate", new_donation_path(organisations_profile_id: profile.id), class:"card-link"%>
+        <div class="card-rows-d">
+            <% @organisations_profiles.map do |profile| %>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= profile.organisation_name%></h5>
+                        <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
+                        <p class="card-text"></p>
+                        <%= link_to "read more", profile, class:"card-link"%>
+                        <%= link_to "donate", new_donation_path(organisations_profile_id: profile.id), class:"card-link"%>
+                    </div>
                 </div>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
     </div>
 </div>

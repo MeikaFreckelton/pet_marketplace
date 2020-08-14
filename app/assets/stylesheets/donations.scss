@@ -12,7 +12,23 @@
 }
 
 .donate-heading{
-    padding: 1.85em 0 6em;
+    padding: 2.1em 0 6em;
+}
+
+.read-more-link{
+    // text-decoration: underline;
+    border: 2px solid #9adcfc;
+    border-radius: 3px;
+    color: black;
+    padding: 0.25em 6.9em;
+    margin-bottom: 1.25em;
+    font-weight: 500;
+    &:hover{
+        color: #9adcfc;
+        
+        text-decoration: none;
+        
+    }
 }
 
 #donate-card{
@@ -50,4 +66,11 @@
 
 .org-heading{
     margin: 5% 0;
+}
+
+.card-rows-d{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }

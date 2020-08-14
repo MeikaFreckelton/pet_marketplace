@@ -107,7 +107,7 @@
 <div class="listing-btns">
   <% if current_user %>
     <%#= button_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class:"btn-profile" id:"enquire-link", :method => "get"%>
-    <div class="btn-profile-div">
+    <div class="btn-profile-link">
       <%= link_to "Enquire", new_enquiry_path(:organisations_profile_id => @listing.organisations_profile.id, :listing_id => @listing.id), class: "btn-profile", id: "enquire-link" %>
     </div>
   <% end %>
@@ -119,7 +119,7 @@
       </div>
     <% end %>
   <% end %>
-  <div class="btn-profile-div">
+  <div class="btn-profile-link">
     <%= link_to 'Back', listings_path, class: "btn-profile" %>
   </div>
 </div>

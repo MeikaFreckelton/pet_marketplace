@@ -39,35 +39,38 @@
     </div>
   </div>
     
-    <div class="contact-details">
-      <div class="contact-heading">
-        <h3>Contact details:</h3>
-      </div>
-      <div class="contact-section">
-        <p>
-          <strong>Contact name:</strong>
-          <%= @organisations_profile.contact_name %>
-        </p>
-
-        <p>
-          <strong>Phone number:</strong>
-          <%= @organisations_profile.phone_number %>
-        </p>
-
-        <p>
-            <strong>Email:</strong>
-            <%= @organisations_profile.organisation.email %>
-        </p>
-
-        <p>
-          <strong>Address:</strong>
-          <%= @organisations_profile.address_1 %>
-        </p>
-      </div>
-
-      
+  <div class="contact-details">
+    <div class="contact-heading">
+      <h3>Contact details:</h3>
     </div>
+    <div class="contact-section">
+      <p>
+        <strong>Contact name:</strong>
+        <%= @organisations_profile.contact_name %>
+      </p>
+
+      <p>
+        <strong>Phone number:</strong>
+        <%= @organisations_profile.phone_number %>
+      </p>
+
+      <p>
+          <strong>Email:</strong>
+          <%= @organisations_profile.organisation.email %>
+      </p>
+
+      <p>
+        <strong>Address:</strong>
+        <%= @organisations_profile.address_1 %>
+      </p>
+    </div>   
   </div>
+  </div>
+  <%# <div>
+      <div data-target="places.map" style="height:200px; width:300px" class="form-m-b"></div>
+    </div> %>
+
+  
 
   
 </div>

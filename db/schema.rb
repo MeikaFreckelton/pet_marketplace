@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_074014) do
+ActiveRecord::Schema.define(version: 2020_08_14_070044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 2020_08_13_074014) do
     t.string "breed"
     t.string "sex"
     t.string "animal_type"
-    t.integer "microchip_number"
+    t.string "microchip_number"
     t.string "desexed_status"
     t.string "expected_size"
     t.string "vaccination_status"
     t.text "health_status"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "email"
     t.text "description"
     t.text "vaccination_details"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_074014) do
   create_table "organisations_profiles", force: :cascade do |t|
     t.string "organisation_name"
     t.string "contact_name"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "address_1"
     t.text "bio"
     t.bigint "organisation_id", null: false

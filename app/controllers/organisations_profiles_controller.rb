@@ -18,7 +18,7 @@ class OrganisationsProfilesController < ApplicationController
     if current_user
       redirect_to organisations_profiles_path
     else
-      if current_organisation.organisations_profile.id != nil
+      if current_organisation.organisations_profile != nil
         redirect_to organisations_profiles_path
       end
     end

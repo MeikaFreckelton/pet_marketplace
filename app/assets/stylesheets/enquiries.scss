@@ -1,0 +1,33 @@
+
+// for index page and also replies index page :
+.enquiries-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .enq-links{
+        color: black;
+        background-color: #9adcfc;
+        // border: 2px solid #9adcfc;
+        padding: 0.25em 0.5em;
+        border-radius: 3px;
+    }
+
+}
+
+.enquiry-show{
+
+    .enq-info-h{
+
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+
+        .enq-info{
+            margin: 2em 0;
+            padding: 2em;
+            box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
