@@ -14,20 +14,21 @@
       <%= image_tag listing.pictures.first if listing.pictures.attached?    %>
       
       <div class="card-body listing-row card-top-btn">
-        <h4 class="card-title"><%= listing.name %></h4>
+        <h2 class="card-title"><%= listing.name %></h2>
         <h4 class="card-title"><%= listing.age %></h4>
-        <h4 class="card-title">$<%= listing.price %></h4>
+        <h5 class="card-title">$<%= listing.price %></h5>
       </div>
 
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item orgs-link"> <%= listing.organisations_profile.organisation_name %></li>
+      </ul>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> <%= listing.breed %></li>
       </ul>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> <%= listing.location %></li>
       </ul>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <%= listing.organisations_profile.organisation_name %></li>
-      </ul>
+      
 
       <div class="card-body card-btn">
         <%= link_to 'Read More', listing %>

@@ -18,7 +18,13 @@
         flex-direction: row;
         justify-content: space-between;
         .btn-profile{
+            
+            flex-grow: 1;
+        }
+
+        .users-p-btn{
             width: 46%;
+            flex-grow: 0;
         }
         
     }

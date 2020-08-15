@@ -7,11 +7,15 @@
     <% end %>
     </h1>
 </div>
+<div class="successful-reply">
+    <% if current_organisation %>
+        <%= link_to "Back to Enquiries", enquiries_path, class: "btn-profile" %>
+        <%= link_to "Back to Profile", current_organisation.organisations_profile, class: "btn-profile" %>
+        <%= link_to "To Listings", listings_path, class: "btn-profile" %>
+    <% else %>
+        <%= link_to "Back to Listings", listings_path, class: "btn-profile" %>
+        <%= link_to "Read About Organisations ", organisations_profiles_path, class: "btn-profile"%>
+        
 
-<% if current_organisation %>
-    <%= link_to "Back to Enquiries", enquiries_path, class: "btn-profile" %>
-    <%= link_to "Back to Profile", current_organisation.organisations_profile, class: "btn-profile" %>
-    <%= link_to "To Listings", listings_path, class: "btn-profile" %>
-<% else %>
-    <%= link_to "To Listings", listings_path, class: "btn-profile" %>
-<% end %>
+    <% end %>
+</div>
