@@ -21,6 +21,9 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
+    # prevent users from creating links :
+    # if an organisation without a profile tries to create a listing, will be redirected
+    # to create a profile first ;
     if current_user
       redirect_to listings_path
     else
@@ -42,6 +45,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    # set the organisation before creating a listing:
     @listing = Listing.new(listing_params)
     @listing.organisations_profile_id = (OrganisationsProfile.find_by(organisation_id: current_organisation.id)).id 
     @listing.save

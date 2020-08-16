@@ -6,6 +6,7 @@ class UsersProfilesController < ApplicationController
   # GET /users_profiles.json
   def index
     @users_profiles = UsersProfile.all
+    # prevent anyone from viewing users profiles except for the specific user it is :
     if current_organisation or current_user
       redirect_to root_path
     end
@@ -28,6 +29,7 @@ class UsersProfilesController < ApplicationController
   # POST /users_profiles
   # POST /users_profiles.json
   def create
+    # setting current user as the user whose profile it is :
     @users_profile = UsersProfile.new(users_profile_params)
     @users_profile.user_id = current_user.id
     # @users_profile.id = current_user.users_profile.id 

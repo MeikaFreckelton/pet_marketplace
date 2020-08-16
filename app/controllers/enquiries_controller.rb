@@ -48,11 +48,9 @@ class EnquiriesController < ApplicationController
   # POST /enquiries
   # POST /enquiries.json
   def create
+    # setting params before creating enquiry :
     @enquiry = Enquiry.new(enquiry_params)
-    # @listing_id = params[:listing_id]
-    
     @enquiry.users_profile_id = (UsersProfile.find_by(user_id: current_user.id)).id
-    # @enquiry.organisations_profile_id = (OrganisationsProfile.find_by(params[:organisations_profile_id])).id
     @enquiry.name = @enquiry.users_profile.first_name
     @enquiry.email = @enquiry.users_profile.user.email
     @enquiry.save

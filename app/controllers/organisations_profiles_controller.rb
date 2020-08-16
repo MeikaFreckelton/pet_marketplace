@@ -14,7 +14,8 @@ class OrganisationsProfilesController < ApplicationController
 
   # GET /organisations_profiles/new
   def new
-    # @organisation_id = 
+    # prevent users from creating an organisations profile :
+    # prevent organisations from creating more than one profile :
     if current_user
       redirect_to organisations_profiles_path
     else
@@ -28,7 +29,7 @@ class OrganisationsProfilesController < ApplicationController
 
   # GET /organisations_profiles/1/edit
   def edit
-    
+    # prevent anyone except for the organisation whose profile it is to edit it :
     if current_user or (current_organisation.id != @organisations_profile.organisation_id)
       redirect_to organisations_profile_path
     end
@@ -37,14 +38,13 @@ class OrganisationsProfilesController < ApplicationController
   # POST /organisations_profiles
   # POST /organisations_profiles.json
   def create
-
+    # setting current org as the one connected to this profile :
     @organisations_profile = OrganisationsProfile.new(organisations_profile_params)
     @organisations_profile.organisation_id = current_organisation.id #find(params[:id])
     current_organisation.organisations_profile_id = @organisations_profile.id
     @organisations_profile.save
     
-    # @organisations_profile = current_organisation.OrganisationsProfile.create(organisation_profile_params)
-    # 
+    
 
     respond_to do |format|
       if @organisations_profile.save
