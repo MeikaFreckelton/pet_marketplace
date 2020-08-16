@@ -23,7 +23,7 @@
             <button type="button" class="btn btn-homepage btn-lg"><%= link_to "Create a new listing", new_listing_path %></button>
         <% end %>
         <button type="button" class="btn btn-homepage btn-lg"><%= link_to "View Organisations", organisations_profiles_path%></button>
-        <button type="button" class="btn btn-homepage btn-lg disabled"><%= link_to "View resources", links_path, class: "disabled" %></button>
+        <button type="button" class="btn btn-homepage btn-lg disabled"><%= link_to "View resources", "/", class: "disabled" %></button>
         <% if !current_organisation %>
             <button type="button" class="btn btn-homepage btn-lg"><%= link_to "Make a donation", donations_path %></button>
         <% end %>
