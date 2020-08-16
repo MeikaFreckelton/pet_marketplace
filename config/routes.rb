@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   
   
   # resources page
-  get "/links/", to: "links#index", as: "links"
+  # get "/links/", to: "links#index", as: "links"
 
   # successful payments:
   get "/payments/success", to: "payments#success"
