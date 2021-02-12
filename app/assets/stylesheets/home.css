@@ -1,0 +1,45 @@
+.home-page .centered-heading {
+  font-size: 4em;
+}
+
+.home-page .home-section {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.home-page .home-section p {
+  font-size: 1.5em;
+  margin-top: 2em;
+}
+
+.home-page .home-section .buttons-h {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 9em;
+  margin-top: 3em;
+}
+
+.home-page .home-section .buttons-h .btn-profile {
+  width: 49%;
+  text-align: center;
+}
+
+.home-page .home-section .buttons-h .second-btn {
+  margin-right: 0;
+}
+/*# sourceMappingURL=home.css.map */

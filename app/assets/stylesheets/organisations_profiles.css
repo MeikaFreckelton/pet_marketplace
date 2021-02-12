@@ -1,0 +1,102 @@
+.card-rows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card-rows .card {
+  margin: 5%;
+  text-align: center;
+}
+
+.card-rows .card a {
+  color: #050505;
+}
+
+.card-rows .card .profile-links {
+  background-color: #dbffe6;
+}
+
+.card-rows .card #p-edit-link {
+  padding: 0.5rem;
+}
+
+.profile-img {
+  margin: 0 !important;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 18em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 30%;
+     object-position: 50% 30%;
+}
+
+.contact-details {
+  width: 63%;
+}
+
+.contact-details .contact-heading {
+  padding: 4% 0 0.8% 0;
+}
+
+.contact-details .contact-section {
+  background-color: #dbffe6;
+  padding: 3%;
+  height: 13.5em;
+}
+
+.org-profile .org-p-top-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.org-profile .org-p-left {
+  width: 70%;
+}
+
+.org-profile .org-p-left .profile-btns {
+  width: 98%;
+  margin-top: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.org-profile .org-p-left .profile-btns .btn-profile {
+  text-align: center;
+  padding: 0;
+  width: 11em;
+  height: 2.75em;
+}
+
+.org-profile .bio {
+  background-color: #f7f7f7;
+  padding: 3%;
+  margin: 1.8% 2% 0 0;
+  height: 13.5em;
+}
+
+.form-m-b {
+  margin-bottom: 1em;
+}
+/*# sourceMappingURL=organisations_profiles.css.map */

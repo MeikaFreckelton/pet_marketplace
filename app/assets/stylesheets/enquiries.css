@@ -1,0 +1,45 @@
+.enquiries {
+  margin-bottom: 2em;
+}
+
+.enquiries-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.enquiries-cards .enq-links {
+  color: black;
+  background-color: #9adcfc;
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+}
+
+.enquiry-show .enq-info-h {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.enquiry-show .enq-info-h .enq-info {
+  margin: 2em 0;
+  padding: 2em;
+  -webkit-box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 20px -3px rgba(0, 0, 0, 0.4);
+}
+/*# sourceMappingURL=enquiries.css.map */

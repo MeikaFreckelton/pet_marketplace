@@ -1,0 +1,92 @@
+.donate-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.donate-wrapper .donate-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donate-heading {
+  padding: 2.1em 0 6em;
+}
+
+.read-more-link {
+  border: 2px solid #9adcfc;
+  border-radius: 3px;
+  color: black;
+  padding: 0.25em 6.9em;
+  margin-bottom: 1.25em;
+  font-weight: 500;
+}
+
+.read-more-link:hover {
+  color: #9adcfc;
+  text-decoration: none;
+}
+
+#donate-card {
+  width: 30em;
+  border: 0.025em solid rgba(0, 0, 0, 0.3);
+}
+
+.card-title-border {
+  border-bottom: 0.025em solid rgba(0, 0, 0, 0.3);
+}
+
+.donate-organisation {
+  background-color: #cfcfcf;
+  width: 100%;
+  padding: 0.3em 1.25em 0.3em 1.25rem;
+  text-align: center;
+}
+
+#donate-card-body {
+  padding: 0;
+}
+
+#donate-card-body p {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+#donate-button {
+  padding: 0;
+  margin-bottom: 0.3em;
+}
+
+#donate-button .btn-profile {
+  padding: 0.5em 13.3075em;
+}
+
+.org-heading {
+  margin: 5% 0;
+}
+
+.card-rows-d {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+/*# sourceMappingURL=donations.css.map */
